@@ -11,7 +11,6 @@ def main():
     @bot.event
     async def on_ready():
         await utils.print_user(bot)
-        await utils.load_videocmds(bot)
         await utils.load_cogs(bot)
         await utils.load_cmds(bot)
         await utils.other(bot)
