@@ -1,11 +1,20 @@
+import pathlib
+import random
 import settings
 import utils
 import discord
+import requests
+from discord import app_commands
 from discord.ext import commands
+import database
+from models.account import Account
 
 logger = settings.logging.getLogger("bot")
 
-def main():
+
+def main(token):
+    database.db.create_tables([Account])
+
     bot = commands.Bot(command_prefix=settings.PREFIX, intents=settings.INTENTS)
 
     @bot.event
@@ -17,34 +26,40 @@ def main():
         logger.info("Startup complete")
         # nothing after
 
-
-    
     @bot.event
     async def on_command_error(ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.reply(error)
 
-    @bot.hybrid_command()
-    async def hii(ctx):
-        await ctx.send(f"hewwo {ctx.author.mention}", ephemeral=True)
+    @bot.event 
+    async def on_message(message: discord.Message):
+        ...
 
-    @bot.tree.command(description="desc", name="name")
-    async def hewwo(interaction: discord.Interaction):
-        await interaction.response.send_message(f"hii {interaction.user.mention}", ephemeral=True)
+    @bot.event
+    async def on_raw_reaction_add(payload: discord.RawReactionActionEvent):
+        ...
+
+    @bot.event
+    async def on_raw_reaction_remove(payload: discord.RawReactionActionEvent):
+        ...
+
+
+    # play together
+    @bot.tree.command()
+    @app_commands.choices(game=[app_commands.Choice(name="Unrailed", value="unrailed"), app_commands.Choice(name="Valorant", value="valorant"), app_commands.Choice(name="CS:GO", value="csgo"), app_commands.Choice(name="Other", value="other")])
+    async def play(interaction: discord.Interaction, game: app_commands.Choice[str], players: int = 4):
+        view = utils.ReadyOrNotView(timeout=None)
+        view.initiatior = interaction.user
+        view.game = utils.games_list[game.value]
+        view.players = players
+        await view.send(interaction)
 
 
 
 
-    bot.run(settings.TOKEN, root_logger=True)
+    bot.run(token, root_logger=True)
 
 
-""" command template
-
-@bot.command(help="", brief="", enabled=True, hidden=False)
-async def cmd(ctx):
-    await ctx.reply(f"")
-
-"""
 
 if __name__ == "__main__":
-    main()
+    main(settings.TOKEN)

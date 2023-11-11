@@ -59,7 +59,6 @@ async def server(ctx):
         embed.set_thumbnail(url=ctx.guild.icon.url)
     if ctx.guild.banner:        
         embed.set_image(url=ctx.guild.banner.url)
-    embed.set_footer(text="Created by 360Bot")
     
     await ctx.send(embed=embed)
 

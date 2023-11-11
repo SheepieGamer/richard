@@ -5,7 +5,8 @@ import settings
 
 logger = settings.logging.getLogger(__name__)
 
-@commands.command()
+@commands.hybrid_command()
+@commands.has_permissions(manage_messages=True)
 async def purge(ctx, channel : discord.TextChannel = None, limit : int = 100):
     """ Delete N number of messages in a channel """
     if channel is None:
