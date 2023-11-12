@@ -92,7 +92,7 @@ class Pagination(commands.Cog):
         self.bot = bot
         
     @commands.command()
-    async def paginate(ctx):
+    async def paginate(self, ctx):
         data = range(1, 15)
         pagination_view = PaginationView()
         pagination_view.data = data

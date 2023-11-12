@@ -1,5 +1,6 @@
 import settings
 import discord
+import aiohttp
 import secrets
 from string import ascii_letters, digits, punctuation
 
@@ -148,3 +149,22 @@ class ReadyOrNotView(discord.ui.View):
 
 def gen_pw(char: int = 10):
     return "".join(secrets.choice(ascii_letters + digits + punctuation) for i in range(int(char)))
+
+
+async def chat_gpt(message, bot):
+    if bot.user in message.mentions:
+        await message.channel.typing()
+    try:
+        msg = message.content.split("<@1167904817922977933>")[1]
+    except IndexError:
+        pass
+    if message.author.id != bot.user.id and not message.author.bot and bot.user in message.mentions:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(f"{settings.AI_API}&uid={message.author.id}&msg={msg}") as r:
+                if r.status != 200:
+                    if msg == "" or msg == " ":
+                        return await message.reply("Please supply some text after ``@mentioning`` me")
+                    return await message.reply("An error occured while accessing the chat API! ")
+                j = await r.json()
+                await message.reply(j['cnt'], mention_author=True)
+    await bot.process_commands(message)

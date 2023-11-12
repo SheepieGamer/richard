@@ -5,13 +5,13 @@ import settings
 logger = settings.logging.getLogger(__name__)
 
 
-class MyCog(commands.Cog):
+class Owner(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
 
     @commands.group(hidden=True)
-    async def ext(ctx):
+    async def ext(self, ctx):
         if ctx.author.id == 1117914448745738444:
             if ctx.invoked_subcommand is None:
                 await ctx.reply("Invalid subcommand.")
@@ -20,7 +20,7 @@ class MyCog(commands.Cog):
 
 
     @ext.command(hidden=True)
-    async def reload(ctx, cogs: str):
+    async def reload(self, ctx, cogs: str):
         if ctx.author.id == 1117914448745738444:
             await commands.reload_extension(f"{cogs.lower()}")
             print(f"INFO       - bot             : {cogs} successfully reloaded")
@@ -29,7 +29,7 @@ class MyCog(commands.Cog):
             await ctx.reply("Permission denied.")
 
     @ext.command(hidden=True)
-    async def load(ctx, cogs: str):
+    async def load(self, ctx, cogs: str):
         if ctx.author.id == 1117914448745738444:
             await commands.load_extension(f"cogs.{cogs.lower()}")
             print(f"INFO       - bot             : cogs.{cogs} successfully loaded")
@@ -38,7 +38,7 @@ class MyCog(commands.Cog):
             await ctx.reply("Permission denied.")
 
     @ext.command(hidden=True)
-    async def unload(ctx, cogs: str):
+    async def unload(self, ctx, cogs: str):
         if ctx.author.id == 1117914448745738444:
             if cogs != "owner":
                 await commands.unload_extension(f"cogs.{cogs.lower()}")
@@ -51,4 +51,4 @@ class MyCog(commands.Cog):
             await ctx.reply("Permission denied.")
 
 async def setup(bot):
-    await bot.add_cog(MyCog(bot))
+    await bot.add_cog(Owner(bot))

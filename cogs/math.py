@@ -10,7 +10,7 @@ class Math(commands.Cog):
         self.bot = bot
 
     @commands.hybrid_command()
-    async def math(ctx,  operator: str,  one, two, simple_advanced: str = "simple",):
+    async def math(self, ctx, operator: str,  one, two, simple_advanced: str = "simple",):
         if simple_advanced == "simple":
             if operator == "addition":
                 await ctx.reply(int(one) + int(two))

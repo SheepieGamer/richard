@@ -1,19 +1,13 @@
-import settings
-import utils
-import discord
+import utils, discord, settings
 from discord import app_commands
 from discord.ext import commands
-import database
+from database import economy
 from models.account import Account
 
 logger = settings.logging.getLogger("bot")
 
-
-
-
 def main(token):
-    database.db.create_tables([Account])
-
+    economy.db.create_tables([Account])
     bot = commands.Bot(command_prefix=settings.PREFIX, intents=settings.INTENTS)
 
     @bot.event
@@ -30,8 +24,6 @@ def main(token):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.reply(error)
 
-
-
     # play together
     @bot.tree.command()
     @app_commands.choices(game=[app_commands.Choice(name="Unrailed", value="unrailed"), app_commands.Choice(name="Valorant", value="valorant"), app_commands.Choice(name="CS:GO", value="csgo"), app_commands.Choice(name="Other", value="other")])
@@ -42,12 +34,12 @@ def main(token):
         view.players = players
         await view.send(interaction)
     
-
-
+    
+    @bot.event 
+    async def on_message(message: discord.Message):
+        await utils.chat_gpt(message=message, bot=bot)
 
     bot.run(token, root_logger=True)
-
-
 
 if __name__ == "__main__":
     main(settings.TOKEN)

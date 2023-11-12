@@ -1,5 +1,5 @@
 import peewee
-from database import db
+from database.economy import db
 
 class Account(peewee.Model):
     user_id: str = peewee.CharField(max_length=225)

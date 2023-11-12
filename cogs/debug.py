@@ -12,7 +12,7 @@ class Debug(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def channel(ctx, channel : typing.Union[discord.TextChannel, discord.VoiceChannel, discord.StageChannel]):    
+    async def channel(self, ctx, channel : typing.Union[discord.TextChannel, discord.VoiceChannel, discord.StageChannel]):    
         embed = discord.Embed(
             title=f"{channel.name} Info"
         )

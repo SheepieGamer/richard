@@ -1,61 +1,31 @@
 from discord.ext import commands
-import discord, random, asyncio
-from jokeapi import Jokes
+import discord, random
+import utils
 
 import settings
 logger = settings.logging.getLogger(__name__)
 
 
-class GeneralCMDS(commands.Cog):
+class General(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
     
     @commands.hybrid_command(aliases=['latency'], help="Reply's with:\nPong! [bot's ping]ms", brief="Gets the bot's ping in milliseconds", enabled=True, hidden=False)
-    async def ping(ctx):
+    async def ping(self, ctx):
         await ctx.reply(f"Pong! {round(commands.latency * 1000, 1)}ms")
 
-    @commands.hybrid_command(help="", brief="", enabled=True, hidden=False)
-    async def say(ctx,*, what_to_say):
-        await ctx.reply(what_to_say)
 
     @commands.hybrid_command(help="", brief="", enabled=True, hidden=False)
-    async def joined(ctx, who: discord.Member):
+    async def joined(self, ctx, who: discord.Member):
         await ctx.reply(f"welcome {who.mention}. {who} joined at {who.joined_at}")
 
-    @commands.hybrid_command(help="", brief="", enabled=True, hidden=False)
-    async def slap(ctx, using: str = "fish"):
-        await ctx.reply(f"{ctx.author.display_name} slaps {random.choice(ctx.guild.members)} using {using}")
 
-    @commands.command(aliases=[''], hidden=True)
-    async def aaaaaaaaaaaaaaaaaaaaaaa(ctx):
-        await ctx.reply("You have found the secret command. Good job. Have a cookie :cookie:")
 
-    @commands.command()
-    async def joke(ctx, nsfw: bool = False):
-        if not nsfw:
-            j = await Jokes()
-            blacklist=['nsfw', 'religious', 'political', 'racist', 'sexist']
-            joke = await j.get_joke(blacklist=blacklist)
-            if joke["type"] == "single":
-                await ctx.reply(joke["joke"])
-            else:
-                msg = await ctx.reply(joke["setup"])
-                await asyncio.sleep(1)
-                await msg.reply(joke["delivery"])
-        elif nsfw:
-            j = await Jokes()
-            blacklist=['religious', 'political', 'racist', 'sexist']
-            joke = await j.get_joke(blacklist=blacklist)
-            if joke["type"] == "single":
-                await ctx.reply(joke["joke"])
-            else:
-                msg = await ctx.reply(joke["setup"])
-                await asyncio.sleep(1)
-                await msg.reply(joke["delivery"])
+
 
     @commands.command(aliases=['serverinfo'])
-    async def server(ctx):
+    async def server(self, ctx):
         """ Shows basic information about Guild """
         
         embed = discord.Embed(
@@ -110,5 +80,10 @@ class GeneralCMDS(commands.Cog):
     
         await ctx.send(embed=embed)
 
+    @commands.hybrid_command(name="generate-password")
+    async def password_gen(self, ctx, characters: int = 8):
+        await ctx.author.send(f"Your password is {utils.gen_pw(characters)}")
+        await ctx.reply("Your password is in your DMs")
+
 async def setup(bot):
-    await bot.add_cog(GeneralCMDS(bot))
+    await bot.add_cog(General(bot))

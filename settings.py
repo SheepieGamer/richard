@@ -14,6 +14,8 @@ INTENTS = discord.Intents.all()
 
 TOKEN = os.getenv("DISCORD_API_TOKEN")
 
+AI_API = os.getenv("AI_API")
+
 BASE_DIR = pathlib.Path(__file__).parent
 IMAGES_DIR = BASE_DIR / "images"
 IMAGES_TEMP_DIR = IMAGES_DIR / "temp"
