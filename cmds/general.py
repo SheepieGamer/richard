@@ -1,5 +1,6 @@
 from discord.ext import commands
-import discord, random
+import discord, random, asyncio
+from jokeapi import Jokes
 
 class Slapper(commands.Converter):
     use_nicknames: bool
@@ -36,6 +37,29 @@ async def slap(ctx, using: Slapper(use_nicknames=True)):
 @commands.command(aliases=[''], hidden=True)
 async def aaaaaaaaaaaaaaaaaaaaaaa(ctx):
     await ctx.reply("You have found the secret command. Good job. Have a cookie :cookie:")
+
+@commands.command()
+async def joke(ctx, nsfw: bool = False):
+    if not nsfw:
+        j = await Jokes()
+        blacklist=['nsfw', 'religious', 'political', 'racist', 'sexist']
+        joke = await j.get_joke(blacklist=blacklist)
+        if joke["type"] == "single":
+            await ctx.reply(joke["joke"])
+        else:
+            msg = await ctx.reply(joke["setup"])
+            await asyncio.sleep(1)
+            await msg.reply(joke["delivery"])
+    elif nsfw:
+        j = await Jokes()
+        blacklist=['religious', 'political', 'racist', 'sexist']
+        joke = await j.get_joke(blacklist=blacklist)
+        if joke["type"] == "single":
+            await ctx.reply(joke["joke"])
+        else:
+            msg = await ctx.reply(joke["setup"])
+            await asyncio.sleep(1)
+            await msg.reply(joke["delivery"])
 
 async def setup(bot):
     bot.add_command(ping)

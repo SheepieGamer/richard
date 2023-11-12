@@ -1,9 +1,6 @@
-import pathlib
-import random
 import settings
 import utils
 import discord
-import requests
 from discord import app_commands
 from discord.ext import commands
 import database
@@ -42,7 +39,7 @@ def main(token):
         view.game = utils.games_list[game.value]
         view.players = players
         await view.send(interaction)
-
+    
 
 
 
