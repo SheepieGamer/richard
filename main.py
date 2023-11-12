@@ -31,17 +31,6 @@ def main(token):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.reply(error)
 
-    @bot.event 
-    async def on_message(message: discord.Message):
-        ...
-
-    @bot.event
-    async def on_raw_reaction_add(payload: discord.RawReactionActionEvent):
-        ...
-
-    @bot.event
-    async def on_raw_reaction_remove(payload: discord.RawReactionActionEvent):
-        ...
 
 
     # play together

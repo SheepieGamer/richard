@@ -38,8 +38,8 @@ async def ext(ctx):
 @ext.command(hidden=True)
 async def reload(ctx, cogs: str):
     if ctx.author.id == 1117914448745738444:
-        await commands.reload_extension(f"cogs.{cogs.lower()}")
-        print(f"INFO       - bot             : cogs.{cogs} successfully reloaded")
+        await commands.reload_extension(f"{cogs.lower()}")
+        print(f"INFO       - bot             : {cogs} successfully reloaded")
         await ctx.reply(f"successfully reloaded {cogs}")
     else:
         await ctx.reply("Permission denied.")
