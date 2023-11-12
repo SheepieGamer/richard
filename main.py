@@ -9,6 +9,8 @@ from models.account import Account
 logger = settings.logging.getLogger("bot")
 
 
+
+
 def main(token):
     database.db.create_tables([Account])
 

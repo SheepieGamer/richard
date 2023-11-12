@@ -1,5 +1,7 @@
 import settings
 import discord
+import secrets
+from string import ascii_letters, digits, punctuation
 
 logger = settings.logging.getLogger(__name__)
 
@@ -142,3 +144,7 @@ class ReadyOrNotView(discord.ui.View):
             self.declined_users.remove(interaction.user.display_name)
 
         await self.update_message()
+
+
+def gen_pw(char: int = 10):
+    return "".join(secrets.choice(ascii_letters + digits + punctuation) for i in range(int(char)))

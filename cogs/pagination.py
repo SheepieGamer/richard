@@ -1,5 +1,8 @@
-from discord.ext import commands
 import discord
+from discord.ext import commands
+import settings
+
+logger = settings.logging.getLogger(__name__)
 
 class PaginationView(discord.ui.View):
     current_page: int = 1
@@ -82,12 +85,18 @@ class PaginationView(discord.ui.View):
         from_item = until_item - self.sep
         await self.update_message(self.data[from_item:])
 
-@commands.command()
-async def paginate(ctx):
-    data = range(1, 15)
-    pagination_view = PaginationView()
-    pagination_view.data = data
-    await pagination_view.send(ctx)
+
+class Pagination(commands.Cog):
+
+    def __init__(self, bot):
+        self.bot = bot
+        
+    @commands.command()
+    async def paginate(ctx):
+        data = range(1, 15)
+        pagination_view = PaginationView()
+        pagination_view.data = data
+        await pagination_view.send(ctx)
 
 async def setup(bot):
-    bot.add_command(paginate)
+    await bot.add_cog(Pagination(bot))
