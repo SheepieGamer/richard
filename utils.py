@@ -10,16 +10,26 @@ async def print_user(bot):
     logger.info(f"User: {bot.user} (ID: {bot.user.id})")
 
 async def load_cogs(bot):
+    loaded = []
     for cog_file in settings.COGS_DIR.glob("*.py"):
         if cog_file.name != "__init__.py":
             await bot.load_extension(f"cogs.{cog_file.name[:-3]}")
-            logger.info(f"cogs.{cog_file.name[:-3]} successfully loaded")
+            loaded.append("cogs." + cog_file.name[:-3])
+    loaded_str = ""
+    for i in loaded:
+        loaded_str += f"{i}, "
+    logger.info(f"{loaded_str} successfully loaded")
 
 async def load_cmds(bot):
+    loaded = []
     for cmd_file in settings.CMDS_DIR.glob("*.py"):
         if cmd_file.name != "__init__.py":
             await bot.load_extension(f"cmds.{cmd_file.name[:-3]}")
-            logger.info(f"cmds.{cmd_file.name[:-3]} successfully loaded")
+            loaded.append(cmd_file.name[:-3])
+    loaded_str = ""
+    for i in loaded:
+        loaded_str += f"{i}, "
+    logger.info(f"{loaded_str} successfully loaded")
 
 async def other(bot):
     bot.tree.copy_global_to(guild=bot.guilds[0])
@@ -157,7 +167,7 @@ async def chat_gpt(message, bot):
     try:
         msg = message.content.split("<@1167904817922977933>")[1]
     except IndexError:
-        pass
+        msg = message
     if message.author.id != bot.user.id and not message.author.bot and bot.user in message.mentions:
         async with aiohttp.ClientSession() as session:
             async with session.get(f"{settings.AI_API}&uid={message.author.id}&msg={msg}") as r:

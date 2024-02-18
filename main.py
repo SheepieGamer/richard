@@ -8,7 +8,12 @@ logger = settings.logging.getLogger("bot")
 
 def main(token):
     economy.db.create_tables([Account])
-    bot = commands.Bot(command_prefix=settings.PREFIX, intents=settings.INTENTS)
+
+    activity = discord.Activity(type=discord.ActivityType.watching, name="richard")
+
+    bot = commands.Bot(command_prefix=settings.PREFIX, intents=settings.INTENTS, activity=activity)
+
+    # bot.tree.sync()
 
     @bot.event
     async def on_ready():
@@ -38,8 +43,10 @@ def main(token):
     @bot.event 
     async def on_message(message: discord.Message):
         await utils.chat_gpt(message=message, bot=bot)
-
     bot.run(token, root_logger=True)
 
 if __name__ == "__main__":
     main(settings.TOKEN)
+
+
+
