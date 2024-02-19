@@ -40,9 +40,6 @@ def main(token):
         await view.send(interaction)
     
     
-    @bot.event 
-    async def on_message(message: discord.Message):
-        await utils.chat_gpt(message=message, bot=bot)
     bot.run(token, root_logger=True)
 
 if __name__ == "__main__":

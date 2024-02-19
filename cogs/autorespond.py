@@ -1,4 +1,4 @@
-import discord
+import discord, aiohttp
 from discord.ext import commands
 import settings
 
@@ -22,9 +22,28 @@ class AutorespondBot(commands.Cog):
                             await message.channel.send(respond_config['message'])
                             break
 
+    # gpt
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if self.bot.user in message.mentions:
+            await message.channel.typing()
+        try:
+            msg = message.content.split("<@1167904817922977933>")[1]
+        except IndexError:
+            msg = message
+        if message.author.id != self.bot.user.id and not message.author.bot and self.bot.user in message.mentions:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(f"{settings.AI_API}&uid={message.author.id}&msg={msg}") as r:
+                    if r.status != 200:
+                        if msg == "" or msg == " ":
+                            return await message.reply("Please supply some text after ``@mentioning`` me")
+                        return await message.reply("An error occured while accessing the chat API! ")
+                    j = await r.json()
+                    await message.reply(j['cnt'], mention_author=True)
+
     @commands.group()
     async def autorespond(self, ctx):
-        ...
+        await ctx.reply("r!autorespond create\nr!autorespond delete\nr!autorespond edit\nr!autorespond show\n")
 
     @autorespond.command()
     async def create(self, ctx, trigger: str = "Hi", answer: str = "Hello!"):

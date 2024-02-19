@@ -1,3 +1,3 @@
 import peewee
 
-db = peewee.SqliteDatabase("economy.db")
+db = peewee.SqliteDatabase("database/economy.db")
