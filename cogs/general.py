@@ -11,18 +11,14 @@ class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.hybrid_command(aliases=['latency'], help="Reply's with:\nPong! [bot's ping]ms", brief="Gets the bot's ping in milliseconds", enabled=True, hidden=False)
+    @commands.hybrid_command(aliases=['latency'], help="Replys with:\nPong! [bot's ping]ms", brief="Gets the bot's ping in milliseconds", enabled=True, hidden=False)
     async def ping(self, ctx):
-        await ctx.reply(f"Pong! {round(commands.latency * 1000, 1)}ms")
+        await ctx.reply(f"Pong! {round(ctx.bot.latency * 1000, 1)}ms")
 
 
     @commands.hybrid_command(help="", brief="", enabled=True, hidden=False)
     async def joined(self, ctx, who: discord.Member):
         await ctx.reply(f"welcome {who.mention}. {who} joined at {who.joined_at}")
-
-
-
-
 
     @commands.command(aliases=['serverinfo'])
     async def server(self, ctx):
@@ -82,7 +78,7 @@ class General(commands.Cog):
 
     @commands.hybrid_command(name="generate-password")
     async def password_gen(self, ctx, characters: int = 8):
-        await ctx.author.send(f"Your password is {utils.gen_pw(characters)}")
+        await ctx.author.send(f"Your password is ||{utils.gen_pw(characters)}||")
         await ctx.reply("Your password is in your DMs")
 
 async def setup(bot):

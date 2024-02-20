@@ -82,7 +82,7 @@ class Giveaway(commands.Cog):
         hours = round(time/60, 2)
         give = discord.Embed(color = 0x2ecc71)
         give.set_author(name = f'GIVEAWAY TIME!', icon_url = 'https://i.imgur.com/VaX0pfM.png')
-        give.add_field(name= f'{ctx.author.name} is giving away: {prize}!', value = f'React with 🎉 to enter!\n Ends in {time} minutes! ({hours} hours)', inline = False)
+        give.add_field(name= f'{ctx.author.display_name} is giving away: {prize}!', value = f'React with 🎉 to enter!\n Ends in {time} minutes! ({hours} hours)', inline = False)
         end = datetime.datetime.utcnow() + datetime.timedelta(seconds=time)
         end_ = end.strftime(f"%m/%d/%Y, %H:%M")
         give.set_footer(text = f'Giveaway ends at {end_} UTC!')
@@ -139,7 +139,7 @@ class Giveaway(commands.Cog):
         reroll_announcement = discord.Embed(color = 0xff2424)
         reroll_announcement.set_author(name = f'The giveaway was re-rolled by the host!', icon_url = 'https://i.imgur.com/DDric14.png')
         reroll_announcement.add_field(name = f'🥳 New Winner:', value = f'{winner.mention}', inline = False)
-        await channel.send(embed = reroll_announcement)
+        await new_message.reply(f"{winner.mention}", embed = reroll_announcement)
 
 
 

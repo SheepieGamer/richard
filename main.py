@@ -13,8 +13,6 @@ def main(token):
 
     bot = commands.Bot(command_prefix=settings.PREFIX, intents=settings.INTENTS, activity=activity)
 
-    # bot.tree.sync()
-
     @bot.event
     async def on_ready():
         await utils.print_user(bot)
@@ -44,6 +42,3 @@ def main(token):
 
 if __name__ == "__main__":
     main(settings.TOKEN)
-
-
-

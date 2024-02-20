@@ -12,7 +12,7 @@ class AutorespondBot(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.Cog.listener()
+    @commands.Cog.listener(name="on_message")
     async def on_message(self, message):
         if not message.author.bot:
             if not message.content.startswith(self.bot.command_prefix):
@@ -20,13 +20,15 @@ class AutorespondBot(commands.Cog):
                     for respond_config in self.message_list:
                         if respond_config['trigger'] in message.content:
                             await message.channel.send(respond_config['message'])
-                            break
+                            break 
+        # await commands.process_commands(message)
 
     # gpt
-    @commands.Cog.listener()
-    async def on_message(self, message):
+    @commands.Cog.listener(name="on_message")
+    async def on_mention(self, message):
         if self.bot.user in message.mentions:
-            await message.channel.typing()
+            if message.author.id != self.bot.user.id:
+                await message.channel.typing()
         try:
             msg = message.content.split("<@1167904817922977933>")[1]
         except IndexError:
@@ -40,10 +42,11 @@ class AutorespondBot(commands.Cog):
                         return await message.reply("An error occured while accessing the chat API! ")
                     j = await r.json()
                     await message.reply(j['cnt'], mention_author=True)
+        # await commands.process_commands(message)
 
     @commands.group()
     async def autorespond(self, ctx):
-        await ctx.reply("r!autorespond create\nr!autorespond delete\nr!autorespond edit\nr!autorespond show\n")
+        ...
 
     @autorespond.command()
     async def create(self, ctx, trigger: str = "Hi", answer: str = "Hello!"):

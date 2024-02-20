@@ -20,10 +20,6 @@ class Animals(commands.Cog):
         url = f"http://api.sheepiegamer20.com/images/{animal_you_want}/{animal_you_want}{num}.png"
         return url
 
-    def get_random_cat_local_image():
-        cat_images = pathlib.Path(settings.BASE_DIR / "images" / "cats").glob("**/*")
-        return random.choice(list(cat_images))
-
     def get_random_dog_image_url():
         url = "https://dog.ceo/api/breeds/image/random"
         res = requests.get(url)
@@ -32,22 +28,30 @@ class Animals(commands.Cog):
             return data["message"]
         return None
 
-    @commands.command()
+    @commands.hybrid_command()
     async def dog(self, ctx):
-        random_dog_image = self.get_random_dog_image_url()
+        url = "https://dog.ceo/api/breeds/image/random"
+        res = requests.get(url)
+        data = res.json()
+        if "message" in data:
+            random_dog_image = data["message"]
+        else:
+            random_dog_image = None
         if not random_dog_image:
             await ctx.reply("The API didn't respond. Try again later")
             return
-
         embed = discord.Embed(title="Woof!", color=discord.Color.random())
         embed.set_image(url=random_dog_image)
         await ctx.reply(embed=embed)
 
 
 
-    @commands.command()
+    @commands.hybrid_command()
     async def cat(self, ctx):
-        random_cat_image = self.get_random_cat_image_url()
+        animal_you_want = 'cat'
+        NUM_IMAGES = 1000
+        num = random.randint(0, NUM_IMAGES+1)
+        random_cat_image = f"http://api.sheepiegamer20.com/images/{animal_you_want}/{animal_you_want}{num}.png"
         if not random_cat_image:
             await ctx.reply("The API didn't respond. Try again later")
             return

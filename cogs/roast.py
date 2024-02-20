@@ -130,7 +130,7 @@ async def _roast_battle(ctx: Context, prev_msg: discord.Message):
 async def _roast_someone(ctx: Context, target: discord.Member | None = None):
   """Roast someone :smiling_imp:"""
   if target is None:
-    dumb = ["do ``s!roast @mention`` to roast somebody once, or ``s!roast me`` for a roast battle "]
+    dumb = ["do ``r!roast @mention`` to roast somebody once, or ``r!roast me`` for a roast battle "]
     await ctx.reply(random.choice(dumb))
     return
   elif target.id == ctx.author.id:
@@ -189,13 +189,9 @@ async def _roast_someone(ctx: Context, target: discord.Member | None = None):
     except Exception as e:
       raise e
 
-"""
-@bot.event
-async def on_command_error(ctx, ex):
-  if isinstance(ex, CommandOnCooldown):
-    await ctx.reply(
-      f"You're on cooldown, try again in **`{round(ex.retry_after, 1)}s`**")
-"""
+
+
+
 
 
 class Roast(commands.Cog):
@@ -237,6 +233,11 @@ class Roast(commands.Cog):
         pb.msg = msg
         pb.ctx = ctx
 
+    @_roast.error
+    async def command_name_error(self,ctx, error):
+        if isinstance(error, commands.CommandOnCooldown):
+            em = discord.Embed(title=f"You're on cooldown!",description=f"Try again in {error.retry_after:.2f}s.")
+            await ctx.reply(embed=em)  
 
 async def setup(bot):
     await bot.add_cog(Roast(bot))
