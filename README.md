@@ -4,3 +4,13 @@
 ## completed guide
 
 # I've added some of my own stuff
+
+JOIN THIS: https://discord.gg/zjpcUnjHa7
+JOIN THIS: https://discord.gg/zjpcUnjHa7
+JOIN THIS: https://discord.gg/zjpcUnjHa7
+JOIN THIS: https://discord.gg/zjpcUnjHa7
+JOIN THIS: https://discord.gg/zjpcUnjHa7
+JOIN THIS: https://discord.gg/zjpcUnjHa7
+JOIN THIS: https://discord.gg/zjpcUnjHa7
+JOIN THIS: https://discord.gg/zjpcUnjHa7
+JOIN THIS: https://discord.gg/zjpcUnjHa7
