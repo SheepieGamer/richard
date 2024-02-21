@@ -1,13 +1,7 @@
-import discord
+import discord, settings, asyncio, requests, random
 from discord.ext import commands
-import settings
-import asyncio
-import requests
 from typing import Union
-from PIL import Image
-import random
 from jokeapi import Jokes
-
 from PIL import Image
 
 

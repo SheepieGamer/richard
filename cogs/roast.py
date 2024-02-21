@@ -1,9 +1,5 @@
-import discord
-import asyncio
+import discord, asyncio, settings, random, json
 from discord.ext import commands
-import settings
-import random
-import json
 from time import time
 from discord.ext.commands import (BucketType, Context, MemberConverter,
                                   cooldown, max_concurrency)

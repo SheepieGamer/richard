@@ -1,8 +1,5 @@
 from discord.ext import commands
-import discord, random
-import utils
-
-import settings
+import discord, utils, settings
 logger = settings.logging.getLogger(__name__)
 
 

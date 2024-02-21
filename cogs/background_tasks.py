@@ -1,5 +1,4 @@
-import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import settings
 
 logger = settings.logging.getLogger(__name__)

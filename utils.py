@@ -1,7 +1,4 @@
-import settings
-import discord
-import aiohttp
-import secrets
+import settings, discord, secrets
 from string import ascii_letters, digits, punctuation
 
 logger = settings.logging.getLogger(__name__)

@@ -1,9 +1,5 @@
 from discord.ext import commands
-import discord
-import requests
-import pathlib
-import settings
-import random
+import discord, requests, settings, random
 
 logger = settings.logging.getLogger(__name__)
 

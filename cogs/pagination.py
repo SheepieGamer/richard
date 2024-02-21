@@ -1,6 +1,5 @@
-import discord
+import discord, settings
 from discord.ext import commands
-import settings
 
 logger = settings.logging.getLogger(__name__)
 

@@ -1,9 +1,5 @@
-import discord
-import random
-import peewee
+import discord, random, settings
 from discord.ext import commands
-import settings
-from discord.ext.commands import cooldown, BucketType
 from models.account import Account
 
 logger = settings.logging.getLogger(__name__)
@@ -167,7 +163,7 @@ class EconomyBot(commands.Cog):
     async def command_name_error(self,ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             em = discord.Embed(title=f"You're on cooldown!",description=f"Try again in {error.retry_after:.2f}s.")
-            await ctx.reply(embed=em)  
+            await ctx.reply(embed=em)
     @balance.error
     async def command_name_error(self,ctx, error):
         if isinstance(error, commands.CommandOnCooldown):

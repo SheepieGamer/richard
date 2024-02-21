@@ -1,9 +1,5 @@
-import discord
-import random
-import asyncio
-import datetime
+import discord, random, asyncio, datetime, settings
 from discord.ext import commands
-import settings
 
 logger = settings.logging.getLogger(__name__)
 

@@ -1,6 +1,5 @@
-import discord
+import discord, settings, datetime
 from discord.ext import commands
-import settings, datetime
 
 logger = settings.logging.getLogger(__name__)
 

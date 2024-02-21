@@ -1,7 +1,5 @@
-import discord
-import typing
+import discord, typing, settings
 from discord.ext import commands
-import settings
 
 logger = settings.logging.getLogger(__name__)
 
