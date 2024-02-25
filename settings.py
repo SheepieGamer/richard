@@ -1,4 +1,5 @@
 import pathlib, os, discord
+import logging
 from logging.config import dictConfig
 from dotenv import load_dotenv
 

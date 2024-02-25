@@ -12,7 +12,7 @@ def main(token):
     activity = discord.Activity(type=discord.ActivityType.watching, name="richard")
 
     bot = commands.Bot(command_prefix=settings.PREFIX, intents=settings.INTENTS, activity=activity)
-
+    
     @bot.event
     async def on_ready():
         await utils.print_user(bot)
@@ -36,7 +36,6 @@ def main(token):
         view.game = utils.games_list[game.value]
         view.players = players
         await view.send(interaction)
-    
     
     bot.run(token, root_logger=True)
 
