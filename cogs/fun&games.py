@@ -120,7 +120,7 @@ class fun_and_games(commands.Cog):
         await ctx.send(f"{percent_two}% done")
         await asyncio.sleep(wait_time - 1)
         await ctx.send("IP Hacked!")
-        embed = discord.Embed(title=f"{member.display_name} has been successfully hacked!", description=f"Click [here](https://homemade.sheepiegamer20.com/hacked-credentials/28ADJFE122HS721HG/) to see {member}'s credentials", color=discord.Color.random())
+        embed = discord.Embed(title=f"{member.display_name} has been successfully hacked!", description=f"Click [here](https://sheepie.pythonanywhere.com/hacked-credentials/28ADJFE122HS721HG/) to see {member}'s credentials", color=discord.Color.random())
         await ctx.reply(embed=embed)
         await member.send("You have been hacked! (this is fake)")
 
