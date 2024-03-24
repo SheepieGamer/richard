@@ -6,5 +6,5 @@ jokeapi==1.0.5
 pillow==10.2.0
 youtube-dl
 roastedbyai==1.2.0
-flask==
+flask
 python-dotenv==1.0.1
