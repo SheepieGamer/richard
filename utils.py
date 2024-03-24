@@ -26,7 +26,7 @@ async def load_cmds(bot):
     loaded_str = ""
     for i in loaded:
         loaded_str += f"{i}, "
-    logger.info(f"{loaded_str} successfully loaded")
+    logger.info(f"{loaded_str} successfully loaded") if loaded_str != "" else logger.info("no cmds to load")
 
 async def other(bot):
     bot.tree.copy_global_to(guild=bot.guilds[0])
@@ -37,10 +37,6 @@ async def other(bot):
 
 
 # nothing after
-
-
-
-
 
 games_list = {
     "unrailed": {

@@ -2,7 +2,6 @@ import pathlib, os, discord
 import logging
 from logging.config import dictConfig
 from dotenv import load_dotenv
-
 load_dotenv()
 
 COLOR = discord.Color.random()

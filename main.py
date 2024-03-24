@@ -3,6 +3,8 @@ from discord import app_commands
 from discord.ext import commands
 from database import economy
 from models.account import Account
+from keep_alive import keep_alive
+keep_alive()
 
 logger = settings.logging.getLogger("bot")
 
