@@ -1,8 +1,12 @@
-import aiohttp, settings
-from discord.ext import commands
+import aiohttp, settings, discord
+from discord.ext import commands, tasks
 
 logger = settings.logging.getLogger(__name__)
 
+
+
+
+amount_cmds = 0
 
 class AutorespondBot(commands.Cog):
 
@@ -10,9 +14,18 @@ class AutorespondBot(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+        file = open("amount-cmds.txt", "r")
+        self.amount_cmds = int(file.readline(-1))
+        file.close()
+        self.update_file.start()
+
+    def cog_unload(self) -> None:
+        self.update_file.stop()
 
     @commands.Cog.listener(name="on_message")
     async def on_message(self, message):
+        if message.content.startswith(self.bot.command_prefix):
+            self.amount_cmds += 1
         if not message.author.bot:
             if not message.content.startswith(self.bot.command_prefix):
                 if len(self.message_list) > 0:
@@ -21,6 +34,12 @@ class AutorespondBot(commands.Cog):
                             await message.channel.send(respond_config['message'])
                             break 
         # await commands.process_commands(message)
+
+    @tasks.loop(seconds=5)
+    async def update_file(self):
+        file = open("amount-cmds.txt", "w+")
+        file.write(str(self.amount_cmds)+"\n")
+
 
     # gpt
     @commands.Cog.listener(name="on_message")

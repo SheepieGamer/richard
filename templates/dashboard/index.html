@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Richard </title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+/* vote Mikuni and stop looking at the code kthxbai */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+*::selection {
+  color: #22b4b7;
+}
+html {
+  scroll-behavior: smooth;
+}
+.max-width {
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #121212;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: #22b4b7;
+  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25), inset -2px -2px -2px rgba(0,0,0,0.25);
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 30px 0;
+  font-family: 'Ubuntu', sans-serif;
+  transition: all 0.3s ease;
+  z-index: 99999;
+}
+.navbar.sticky {
+  padding: 15px 0;
+  background: #22b4b7;
+}
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo a {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+.navbar .logo a span {
+  color: #22b4b7;
+  transition: all 0.3s ease;
+}
+.navbar.sticky .logo a span {
+  color: #fff;
+}
+.navbar .menu li {
+  list-style: none;
+  display: inline-block;
+}
+.navbar .menu li a {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 25px;
+  transition: color 0.3s ease;
+}
+.navbar .menu li a:hover {
+  color: #22b4b7;
+}
+.navbar.sticky .menu li a:hover {
+  color: #fff;
+}
+
+.menu-btn {
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  display: none;
+}
+.scroll-up-btn {
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  background: #22b4b7;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  z-index: 9999;
+  font-size: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#particles-js {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+}
+.home {
+  display: flex;
+  background: #121212 no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  color: #fff;
+  min-height: 500px;
+  font-family: 'Ubuntu', sans-serif;
+}
+.home .max-width {
+  margin: auto 0 auto 150px;
+}
+.home .home-content .text-1 {
+  font-size: 27px;
+}
+.home .home-content .text-2 {
+  font-size: 75px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+.home .home-content .text-3 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+.home .home-content .text-3 span {
+  color: #22b4b7;
+  font-weight: 500;
+}
+.this-is-pain {
+  position: absolute;
+  display: inline-block;
+  background: #22b4b7;
+  color: #fff;
+  font-size: 25px;
+  padding: 12px 36px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid #22b4b7;
+  transition: all 0.3s ease;
+}
+.this-is-pain:hover {
+  background: none;
+  color: #22b4b7;
+}
+
+section {
+  padding: 100px 0;
+}
+section .title {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  font-family: 'Ubuntu', sans-serif;
+}
+section .title::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 220px;
+  height: 3px;
+  background: #121212;
+  transform: translateX(-50%);
+}
+section .title::after {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  font-size: 20px;
+  color: #22b4b7;
+  padding: 5px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.features, .contributors {
+  color: #fff;
+  background: #121212;
+  font-family: 'Poppins', sans-serif;
+}
+.features .title::before,
+.contributors .title::before {
+  background: #fff;
+}
+.features .title::after,
+.contributors .title::after {
+  background: #121212;
+  content: "I can do a lot"
+}
+.features .features-content,
+.stats .stats-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.card {
+  width: calc(33% - 20px);
+  background: #222;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+.card:hover {
+  background: #22b4b7;
+}
+.card:hover i {
+  color: #fff;
+}
+.card .box {
+  transition: all 0.3s ease;
+}
+.card:hover .box {
+  transform: scale(1.05);
+}
+.card i {
+  font-size: 50px;
+  color: #22b4b7;
+  transition: color 0.3s ease;
+}
+.card .text {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+  color: #fff;
+}
+
+.stats {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+}
+.stats .title::after {
+  content: "thank you ";
+}
+.stats p {
+  color: #fff;
+  font-size: 18px;
+}
+
+
+
+
+.contributors .title::after {
+  content: "amazing people";
+}
+.contributors .carousel .cardd {
+  background: #222;
+  border-radius: 6px;
+  padding: 25px 35px;
+  transition: all 0.3s ease;
+}
+.contributors .carousel .cardd:hover {
+  background: #22b4b7;
+}
+.contributors .carousel .cardd .boxx {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.contributors .carousel .cardd:hover .boxx {
+  transform: scale(1.05);
+}
+.contributors .carousel .cardd .text {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+}
+.contributors .carousel .cardd img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #22b4b7;
+  transition: all 0.3s ease;
+}
+.contributors .carousel .cardd:hover img {
+  border-color: #fff;
+}
+.badges {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+.badges.owner {
+  background: #22b4b7;
+}
+.badges.developer {
+  background: orange;
+  color: #121212;
+  border: none;
+}
+.badges.supporter {
+  background: #ff1476;
+  color: #121212;
+}
+.badges.designer {
+  background: #315dd4;
+}
+.badges.helper {
+  background: #7289DA;
+  color: #222;
+}
+
+.owl-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+.owl-dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 5px;
+  outline: none!important;
+  border-radius: 50%;
+  border: 2px solid #22b4b7!important;
+  transition: all 0.3s ease;
+}
+.owl-dot.active {
+  width: 35px;
+  border-radius: 14px;
+}
+.owl-dot.active,
+.owl-dot:hover {
+  background: #22b4b7!important;
+}
+
+footer {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  padding: 20px 23px;
+  color: #fff;
+  text-align: center;
+}
+footer span a {
+  color: #22b4b7;
+  text-decoration: none;
+}
+footer span a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* haha responsiveness kill me pain halp me pls kthxbai */
+
+@media (max-width: 1100px) {
+  .home .max-width {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .max-width {
+    padding: 0 50px;
+  }
+}
+
+
+@media (max-width: 950px) {
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+  .menu-btn i.active:before {
+    content: "\f00d";
+  }
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background: #121212;
+    text-align: center;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+  .navbar .menu.active {
+    left: 0;
+  }
+  .navbar .menu li {
+    display: block;
+  }
+  .navbar .menu li a {
+    display: block;
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 25px;
+  }
+  .home .home-content .text-2 {
+    font-size: 70px;
+  }
+  .home .home-content .text-3 {
+    font-size: 35px;
+  }
+  .home .home-content a {
+    font-size: 23px;
+    padding: 10px 30px;
+  }
+
+  .card {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 690px) {
+  .max-width {
+    padding: 0 25px;
+  }
+  .home .home-content .text-2 {
+    font-size: 60px;
+  }
+  .home .home-content .text-3 {
+    font-size: 32px;
+  }
+  .home .home-content a {
+    font-size: 20px;
+    padding: 9px 25px;
+  }
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .home .home-content .text-2 {
+    font-size: 50px;
+  }
+  .home .home-content .text-3 {
+    font-size: 27px;
+  }
+}
+
+
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #222;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+}
+
+
+
+
+.longfazers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.longfazers span {
+  position: absolute;
+  height: 4px;
+  width: 20%;
+  background: #22b4b7;
+}
+.longfazers span:nth-child(1) {
+  top: 20%;
+  animation: lf 0.6s linear infinite;
+  animation-delay: -5s;
+}
+.longfazers span:nth-child(2) {
+  top: 40%;
+  animation: lf2 0.8s linear infinite;
+  animation-delay: -1s;
+}
+.longfazers span:nth-child(3) {
+  top: 60%;
+  animation: lf3 0.6s linear infinite;
+}
+.longfazers span:nth-child(4) {
+  top: 80%;
+  animation: lf4 0.5s linear infinite;
+  animation-delay: -3s;
+}
+@keyframes lf {
+  0% {
+    left: -200%;
+ }
+  100% {
+    left: 200%;
+    opacity: 0;
+ }
+}
+@keyframes lf2 {
+  0% {
+    left: -200%;
+ }
+  100% {
+    left: 200%;
+    opacity: 0;
+ }
+}
+@keyframes lf3 {
+  0% {
+    left: -200%;
+ }
+  100% {
+    left: 100%;
+    opacity: 0;
+ }
+}
+@keyframes lf4 {
+  0% {
+    left: -200%;
+ }
+  100% {
+    left: 100%;
+    opacity: 0;
+ }
+}
+
+    </style>
+
+    <link
+      rel="icon"
+      href="https://cdn.discordapp.com/avatars/794623460030545981/1af9f8c728b9c346baea0ada6ba5df61.webp?size=1024"
+    />
+    <bgsound src="https://cdn.discordapp.com/attachments/873089654667235348/875760019726008401/chilled-acoustic-indie-folk-instrumental-background-music-for-videos-5720.mp3" loop="infinite">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+
+    <style>
+      /* ./aos/aos.css */
+[data-aos][data-aos][data-aos-duration="50"],body[data-aos-duration="50"] [data-aos]{transition-duration:50ms}[data-aos][data-aos][data-aos-delay="50"],body[data-aos-delay="50"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="50"].aos-animate,body[data-aos-delay="50"] [data-aos].aos-animate{transition-delay:50ms}[data-aos][data-aos][data-aos-duration="100"],body[data-aos-duration="100"] [data-aos]{transition-duration:.1s}[data-aos][data-aos][data-aos-delay="100"],body[data-aos-delay="100"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="100"].aos-animate,body[data-aos-delay="100"] [data-aos].aos-animate{transition-delay:.1s}[data-aos][data-aos][data-aos-duration="150"],body[data-aos-duration="150"] [data-aos]{transition-duration:.15s}[data-aos][data-aos][data-aos-delay="150"],body[data-aos-delay="150"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="150"].aos-animate,body[data-aos-delay="150"] [data-aos].aos-animate{transition-delay:.15s}[data-aos][data-aos][data-aos-duration="200"],body[data-aos-duration="200"] [data-aos]{transition-duration:.2s}[data-aos][data-aos][data-aos-delay="200"],body[data-aos-delay="200"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="200"].aos-animate,body[data-aos-delay="200"] [data-aos].aos-animate{transition-delay:.2s}[data-aos][data-aos][data-aos-duration="250"],body[data-aos-duration="250"] [data-aos]{transition-duration:.25s}[data-aos][data-aos][data-aos-delay="250"],body[data-aos-delay="250"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="250"].aos-animate,body[data-aos-delay="250"] [data-aos].aos-animate{transition-delay:.25s}[data-aos][data-aos][data-aos-duration="300"],body[data-aos-duration="300"] [data-aos]{transition-duration:.3s}[data-aos][data-aos][data-aos-delay="300"],body[data-aos-delay="300"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="300"].aos-animate,body[data-aos-delay="300"] [data-aos].aos-animate{transition-delay:.3s}[data-aos][data-aos][data-aos-duration="350"],body[data-aos-duration="350"] [data-aos]{transition-duration:.35s}[data-aos][data-aos][data-aos-delay="350"],body[data-aos-delay="350"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="350"].aos-animate,body[data-aos-delay="350"] [data-aos].aos-animate{transition-delay:.35s}[data-aos][data-aos][data-aos-duration="400"],body[data-aos-duration="400"] [data-aos]{transition-duration:.4s}[data-aos][data-aos][data-aos-delay="400"],body[data-aos-delay="400"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="400"].aos-animate,body[data-aos-delay="400"] [data-aos].aos-animate{transition-delay:.4s}[data-aos][data-aos][data-aos-duration="450"],body[data-aos-duration="450"] [data-aos]{transition-duration:.45s}[data-aos][data-aos][data-aos-delay="450"],body[data-aos-delay="450"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="450"].aos-animate,body[data-aos-delay="450"] [data-aos].aos-animate{transition-delay:.45s}[data-aos][data-aos][data-aos-duration="500"],body[data-aos-duration="500"] [data-aos]{transition-duration:.5s}[data-aos][data-aos][data-aos-delay="500"],body[data-aos-delay="500"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="500"].aos-animate,body[data-aos-delay="500"] [data-aos].aos-animate{transition-delay:.5s}[data-aos][data-aos][data-aos-duration="550"],body[data-aos-duration="550"] [data-aos]{transition-duration:.55s}[data-aos][data-aos][data-aos-delay="550"],body[data-aos-delay="550"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="550"].aos-animate,body[data-aos-delay="550"] [data-aos].aos-animate{transition-delay:.55s}[data-aos][data-aos][data-aos-duration="600"],body[data-aos-duration="600"] [data-aos]{transition-duration:.6s}[data-aos][data-aos][data-aos-delay="600"],body[data-aos-delay="600"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="600"].aos-animate,body[data-aos-delay="600"] [data-aos].aos-animate{transition-delay:.6s}[data-aos][data-aos][data-aos-duration="650"],body[data-aos-duration="650"] [data-aos]{transition-duration:.65s}[data-aos][data-aos][data-aos-delay="650"],body[data-aos-delay="650"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="650"].aos-animate,body[data-aos-delay="650"] [data-aos].aos-animate{transition-delay:.65s}[data-aos][data-aos][data-aos-duration="700"],body[data-aos-duration="700"] [data-aos]{transition-duration:.7s}[data-aos][data-aos][data-aos-delay="700"],body[data-aos-delay="700"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="700"].aos-animate,body[data-aos-delay="700"] [data-aos].aos-animate{transition-delay:.7s}[data-aos][data-aos][data-aos-duration="750"],body[data-aos-duration="750"] [data-aos]{transition-duration:.75s}[data-aos][data-aos][data-aos-delay="750"],body[data-aos-delay="750"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="750"].aos-animate,body[data-aos-delay="750"] [data-aos].aos-animate{transition-delay:.75s}[data-aos][data-aos][data-aos-duration="800"],body[data-aos-duration="800"] [data-aos]{transition-duration:.8s}[data-aos][data-aos][data-aos-delay="800"],body[data-aos-delay="800"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="800"].aos-animate,body[data-aos-delay="800"] [data-aos].aos-animate{transition-delay:.8s}[data-aos][data-aos][data-aos-duration="850"],body[data-aos-duration="850"] [data-aos]{transition-duration:.85s}[data-aos][data-aos][data-aos-delay="850"],body[data-aos-delay="850"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="850"].aos-animate,body[data-aos-delay="850"] [data-aos].aos-animate{transition-delay:.85s}[data-aos][data-aos][data-aos-duration="900"],body[data-aos-duration="900"] [data-aos]{transition-duration:.9s}[data-aos][data-aos][data-aos-delay="900"],body[data-aos-delay="900"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="900"].aos-animate,body[data-aos-delay="900"] [data-aos].aos-animate{transition-delay:.9s}[data-aos][data-aos][data-aos-duration="950"],body[data-aos-duration="950"] [data-aos]{transition-duration:.95s}[data-aos][data-aos][data-aos-delay="950"],body[data-aos-delay="950"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="950"].aos-animate,body[data-aos-delay="950"] [data-aos].aos-animate{transition-delay:.95s}[data-aos][data-aos][data-aos-duration="1000"],body[data-aos-duration="1000"] [data-aos]{transition-duration:1s}[data-aos][data-aos][data-aos-delay="1000"],body[data-aos-delay="1000"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1000"].aos-animate,body[data-aos-delay="1000"] [data-aos].aos-animate{transition-delay:1s}[data-aos][data-aos][data-aos-duration="1050"],body[data-aos-duration="1050"] [data-aos]{transition-duration:1.05s}[data-aos][data-aos][data-aos-delay="1050"],body[data-aos-delay="1050"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1050"].aos-animate,body[data-aos-delay="1050"] [data-aos].aos-animate{transition-delay:1.05s}[data-aos][data-aos][data-aos-duration="1100"],body[data-aos-duration="1100"] [data-aos]{transition-duration:1.1s}[data-aos][data-aos][data-aos-delay="1100"],body[data-aos-delay="1100"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1100"].aos-animate,body[data-aos-delay="1100"] [data-aos].aos-animate{transition-delay:1.1s}[data-aos][data-aos][data-aos-duration="1150"],body[data-aos-duration="1150"] [data-aos]{transition-duration:1.15s}[data-aos][data-aos][data-aos-delay="1150"],body[data-aos-delay="1150"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1150"].aos-animate,body[data-aos-delay="1150"] [data-aos].aos-animate{transition-delay:1.15s}[data-aos][data-aos][data-aos-duration="1200"],body[data-aos-duration="1200"] [data-aos]{transition-duration:1.2s}[data-aos][data-aos][data-aos-delay="1200"],body[data-aos-delay="1200"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1200"].aos-animate,body[data-aos-delay="1200"] [data-aos].aos-animate{transition-delay:1.2s}[data-aos][data-aos][data-aos-duration="1250"],body[data-aos-duration="1250"] [data-aos]{transition-duration:1.25s}[data-aos][data-aos][data-aos-delay="1250"],body[data-aos-delay="1250"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1250"].aos-animate,body[data-aos-delay="1250"] [data-aos].aos-animate{transition-delay:1.25s}[data-aos][data-aos][data-aos-duration="1300"],body[data-aos-duration="1300"] [data-aos]{transition-duration:1.3s}[data-aos][data-aos][data-aos-delay="1300"],body[data-aos-delay="1300"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1300"].aos-animate,body[data-aos-delay="1300"] [data-aos].aos-animate{transition-delay:1.3s}[data-aos][data-aos][data-aos-duration="1350"],body[data-aos-duration="1350"] [data-aos]{transition-duration:1.35s}[data-aos][data-aos][data-aos-delay="1350"],body[data-aos-delay="1350"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1350"].aos-animate,body[data-aos-delay="1350"] [data-aos].aos-animate{transition-delay:1.35s}[data-aos][data-aos][data-aos-duration="1400"],body[data-aos-duration="1400"] [data-aos]{transition-duration:1.4s}[data-aos][data-aos][data-aos-delay="1400"],body[data-aos-delay="1400"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1400"].aos-animate,body[data-aos-delay="1400"] [data-aos].aos-animate{transition-delay:1.4s}[data-aos][data-aos][data-aos-duration="1450"],body[data-aos-duration="1450"] [data-aos]{transition-duration:1.45s}[data-aos][data-aos][data-aos-delay="1450"],body[data-aos-delay="1450"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1450"].aos-animate,body[data-aos-delay="1450"] [data-aos].aos-animate{transition-delay:1.45s}[data-aos][data-aos][data-aos-duration="1500"],body[data-aos-duration="1500"] [data-aos]{transition-duration:1.5s}[data-aos][data-aos][data-aos-delay="1500"],body[data-aos-delay="1500"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1500"].aos-animate,body[data-aos-delay="1500"] [data-aos].aos-animate{transition-delay:1.5s}[data-aos][data-aos][data-aos-duration="1550"],body[data-aos-duration="1550"] [data-aos]{transition-duration:1.55s}[data-aos][data-aos][data-aos-delay="1550"],body[data-aos-delay="1550"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1550"].aos-animate,body[data-aos-delay="1550"] [data-aos].aos-animate{transition-delay:1.55s}[data-aos][data-aos][data-aos-duration="1600"],body[data-aos-duration="1600"] [data-aos]{transition-duration:1.6s}[data-aos][data-aos][data-aos-delay="1600"],body[data-aos-delay="1600"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1600"].aos-animate,body[data-aos-delay="1600"] [data-aos].aos-animate{transition-delay:1.6s}[data-aos][data-aos][data-aos-duration="1650"],body[data-aos-duration="1650"] [data-aos]{transition-duration:1.65s}[data-aos][data-aos][data-aos-delay="1650"],body[data-aos-delay="1650"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1650"].aos-animate,body[data-aos-delay="1650"] [data-aos].aos-animate{transition-delay:1.65s}[data-aos][data-aos][data-aos-duration="1700"],body[data-aos-duration="1700"] [data-aos]{transition-duration:1.7s}[data-aos][data-aos][data-aos-delay="1700"],body[data-aos-delay="1700"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1700"].aos-animate,body[data-aos-delay="1700"] [data-aos].aos-animate{transition-delay:1.7s}[data-aos][data-aos][data-aos-duration="1750"],body[data-aos-duration="1750"] [data-aos]{transition-duration:1.75s}[data-aos][data-aos][data-aos-delay="1750"],body[data-aos-delay="1750"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1750"].aos-animate,body[data-aos-delay="1750"] [data-aos].aos-animate{transition-delay:1.75s}[data-aos][data-aos][data-aos-duration="1800"],body[data-aos-duration="1800"] [data-aos]{transition-duration:1.8s}[data-aos][data-aos][data-aos-delay="1800"],body[data-aos-delay="1800"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1800"].aos-animate,body[data-aos-delay="1800"] [data-aos].aos-animate{transition-delay:1.8s}[data-aos][data-aos][data-aos-duration="1850"],body[data-aos-duration="1850"] [data-aos]{transition-duration:1.85s}[data-aos][data-aos][data-aos-delay="1850"],body[data-aos-delay="1850"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1850"].aos-animate,body[data-aos-delay="1850"] [data-aos].aos-animate{transition-delay:1.85s}[data-aos][data-aos][data-aos-duration="1900"],body[data-aos-duration="1900"] [data-aos]{transition-duration:1.9s}[data-aos][data-aos][data-aos-delay="1900"],body[data-aos-delay="1900"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1900"].aos-animate,body[data-aos-delay="1900"] [data-aos].aos-animate{transition-delay:1.9s}[data-aos][data-aos][data-aos-duration="1950"],body[data-aos-duration="1950"] [data-aos]{transition-duration:1.95s}[data-aos][data-aos][data-aos-delay="1950"],body[data-aos-delay="1950"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="1950"].aos-animate,body[data-aos-delay="1950"] [data-aos].aos-animate{transition-delay:1.95s}[data-aos][data-aos][data-aos-duration="2000"],body[data-aos-duration="2000"] [data-aos]{transition-duration:2s}[data-aos][data-aos][data-aos-delay="2000"],body[data-aos-delay="2000"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2000"].aos-animate,body[data-aos-delay="2000"] [data-aos].aos-animate{transition-delay:2s}[data-aos][data-aos][data-aos-duration="2050"],body[data-aos-duration="2050"] [data-aos]{transition-duration:2.05s}[data-aos][data-aos][data-aos-delay="2050"],body[data-aos-delay="2050"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2050"].aos-animate,body[data-aos-delay="2050"] [data-aos].aos-animate{transition-delay:2.05s}[data-aos][data-aos][data-aos-duration="2100"],body[data-aos-duration="2100"] [data-aos]{transition-duration:2.1s}[data-aos][data-aos][data-aos-delay="2100"],body[data-aos-delay="2100"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2100"].aos-animate,body[data-aos-delay="2100"] [data-aos].aos-animate{transition-delay:2.1s}[data-aos][data-aos][data-aos-duration="2150"],body[data-aos-duration="2150"] [data-aos]{transition-duration:2.15s}[data-aos][data-aos][data-aos-delay="2150"],body[data-aos-delay="2150"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2150"].aos-animate,body[data-aos-delay="2150"] [data-aos].aos-animate{transition-delay:2.15s}[data-aos][data-aos][data-aos-duration="2200"],body[data-aos-duration="2200"] [data-aos]{transition-duration:2.2s}[data-aos][data-aos][data-aos-delay="2200"],body[data-aos-delay="2200"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2200"].aos-animate,body[data-aos-delay="2200"] [data-aos].aos-animate{transition-delay:2.2s}[data-aos][data-aos][data-aos-duration="2250"],body[data-aos-duration="2250"] [data-aos]{transition-duration:2.25s}[data-aos][data-aos][data-aos-delay="2250"],body[data-aos-delay="2250"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2250"].aos-animate,body[data-aos-delay="2250"] [data-aos].aos-animate{transition-delay:2.25s}[data-aos][data-aos][data-aos-duration="2300"],body[data-aos-duration="2300"] [data-aos]{transition-duration:2.3s}[data-aos][data-aos][data-aos-delay="2300"],body[data-aos-delay="2300"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2300"].aos-animate,body[data-aos-delay="2300"] [data-aos].aos-animate{transition-delay:2.3s}[data-aos][data-aos][data-aos-duration="2350"],body[data-aos-duration="2350"] [data-aos]{transition-duration:2.35s}[data-aos][data-aos][data-aos-delay="2350"],body[data-aos-delay="2350"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2350"].aos-animate,body[data-aos-delay="2350"] [data-aos].aos-animate{transition-delay:2.35s}[data-aos][data-aos][data-aos-duration="2400"],body[data-aos-duration="2400"] [data-aos]{transition-duration:2.4s}[data-aos][data-aos][data-aos-delay="2400"],body[data-aos-delay="2400"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2400"].aos-animate,body[data-aos-delay="2400"] [data-aos].aos-animate{transition-delay:2.4s}[data-aos][data-aos][data-aos-duration="2450"],body[data-aos-duration="2450"] [data-aos]{transition-duration:2.45s}[data-aos][data-aos][data-aos-delay="2450"],body[data-aos-delay="2450"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2450"].aos-animate,body[data-aos-delay="2450"] [data-aos].aos-animate{transition-delay:2.45s}[data-aos][data-aos][data-aos-duration="2500"],body[data-aos-duration="2500"] [data-aos]{transition-duration:2.5s}[data-aos][data-aos][data-aos-delay="2500"],body[data-aos-delay="2500"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2500"].aos-animate,body[data-aos-delay="2500"] [data-aos].aos-animate{transition-delay:2.5s}[data-aos][data-aos][data-aos-duration="2550"],body[data-aos-duration="2550"] [data-aos]{transition-duration:2.55s}[data-aos][data-aos][data-aos-delay="2550"],body[data-aos-delay="2550"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2550"].aos-animate,body[data-aos-delay="2550"] [data-aos].aos-animate{transition-delay:2.55s}[data-aos][data-aos][data-aos-duration="2600"],body[data-aos-duration="2600"] [data-aos]{transition-duration:2.6s}[data-aos][data-aos][data-aos-delay="2600"],body[data-aos-delay="2600"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2600"].aos-animate,body[data-aos-delay="2600"] [data-aos].aos-animate{transition-delay:2.6s}[data-aos][data-aos][data-aos-duration="2650"],body[data-aos-duration="2650"] [data-aos]{transition-duration:2.65s}[data-aos][data-aos][data-aos-delay="2650"],body[data-aos-delay="2650"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2650"].aos-animate,body[data-aos-delay="2650"] [data-aos].aos-animate{transition-delay:2.65s}[data-aos][data-aos][data-aos-duration="2700"],body[data-aos-duration="2700"] [data-aos]{transition-duration:2.7s}[data-aos][data-aos][data-aos-delay="2700"],body[data-aos-delay="2700"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2700"].aos-animate,body[data-aos-delay="2700"] [data-aos].aos-animate{transition-delay:2.7s}[data-aos][data-aos][data-aos-duration="2750"],body[data-aos-duration="2750"] [data-aos]{transition-duration:2.75s}[data-aos][data-aos][data-aos-delay="2750"],body[data-aos-delay="2750"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2750"].aos-animate,body[data-aos-delay="2750"] [data-aos].aos-animate{transition-delay:2.75s}[data-aos][data-aos][data-aos-duration="2800"],body[data-aos-duration="2800"] [data-aos]{transition-duration:2.8s}[data-aos][data-aos][data-aos-delay="2800"],body[data-aos-delay="2800"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2800"].aos-animate,body[data-aos-delay="2800"] [data-aos].aos-animate{transition-delay:2.8s}[data-aos][data-aos][data-aos-duration="2850"],body[data-aos-duration="2850"] [data-aos]{transition-duration:2.85s}[data-aos][data-aos][data-aos-delay="2850"],body[data-aos-delay="2850"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2850"].aos-animate,body[data-aos-delay="2850"] [data-aos].aos-animate{transition-delay:2.85s}[data-aos][data-aos][data-aos-duration="2900"],body[data-aos-duration="2900"] [data-aos]{transition-duration:2.9s}[data-aos][data-aos][data-aos-delay="2900"],body[data-aos-delay="2900"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2900"].aos-animate,body[data-aos-delay="2900"] [data-aos].aos-animate{transition-delay:2.9s}[data-aos][data-aos][data-aos-duration="2950"],body[data-aos-duration="2950"] [data-aos]{transition-duration:2.95s}[data-aos][data-aos][data-aos-delay="2950"],body[data-aos-delay="2950"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="2950"].aos-animate,body[data-aos-delay="2950"] [data-aos].aos-animate{transition-delay:2.95s}[data-aos][data-aos][data-aos-duration="3000"],body[data-aos-duration="3000"] [data-aos]{transition-duration:3s}[data-aos][data-aos][data-aos-delay="3000"],body[data-aos-delay="3000"] [data-aos]{transition-delay:0}[data-aos][data-aos][data-aos-delay="3000"].aos-animate,body[data-aos-delay="3000"] [data-aos].aos-animate{transition-delay:3s}[data-aos][data-aos][data-aos-easing=linear],body[data-aos-easing=linear] [data-aos]{transition-timing-function:cubic-bezier(.25,.25,.75,.75)}[data-aos][data-aos][data-aos-easing=ease],body[data-aos-easing=ease] [data-aos]{transition-timing-function:ease}[data-aos][data-aos][data-aos-easing=ease-in],body[data-aos-easing=ease-in] [data-aos]{transition-timing-function:ease-in}[data-aos][data-aos][data-aos-easing=ease-out],body[data-aos-easing=ease-out] [data-aos]{transition-timing-function:ease-out}[data-aos][data-aos][data-aos-easing=ease-in-out],body[data-aos-easing=ease-in-out] [data-aos]{transition-timing-function:ease-in-out}[data-aos][data-aos][data-aos-easing=ease-in-back],body[data-aos-easing=ease-in-back] [data-aos]{transition-timing-function:cubic-bezier(.6,-.28,.735,.045)}[data-aos][data-aos][data-aos-easing=ease-out-back],body[data-aos-easing=ease-out-back] [data-aos]{transition-timing-function:cubic-bezier(.175,.885,.32,1.275)}[data-aos][data-aos][data-aos-easing=ease-in-out-back],body[data-aos-easing=ease-in-out-back] [data-aos]{transition-timing-function:cubic-bezier(.68,-.55,.265,1.55)}[data-aos][data-aos][data-aos-easing=ease-in-sine],body[data-aos-easing=ease-in-sine] [data-aos]{transition-timing-function:cubic-bezier(.47,0,.745,.715)}[data-aos][data-aos][data-aos-easing=ease-out-sine],body[data-aos-easing=ease-out-sine] [data-aos]{transition-timing-function:cubic-bezier(.39,.575,.565,1)}[data-aos][data-aos][data-aos-easing=ease-in-out-sine],body[data-aos-easing=ease-in-out-sine] [data-aos]{transition-timing-function:cubic-bezier(.445,.05,.55,.95)}[data-aos][data-aos][data-aos-easing=ease-in-quad],body[data-aos-easing=ease-in-quad] [data-aos]{transition-timing-function:cubic-bezier(.55,.085,.68,.53)}[data-aos][data-aos][data-aos-easing=ease-out-quad],body[data-aos-easing=ease-out-quad] [data-aos]{transition-timing-function:cubic-bezier(.25,.46,.45,.94)}[data-aos][data-aos][data-aos-easing=ease-in-out-quad],body[data-aos-easing=ease-in-out-quad] [data-aos]{transition-timing-function:cubic-bezier(.455,.03,.515,.955)}[data-aos][data-aos][data-aos-easing=ease-in-cubic],body[data-aos-easing=ease-in-cubic] [data-aos]{transition-timing-function:cubic-bezier(.55,.085,.68,.53)}[data-aos][data-aos][data-aos-easing=ease-out-cubic],body[data-aos-easing=ease-out-cubic] [data-aos]{transition-timing-function:cubic-bezier(.25,.46,.45,.94)}[data-aos][data-aos][data-aos-easing=ease-in-out-cubic],body[data-aos-easing=ease-in-out-cubic] [data-aos]{transition-timing-function:cubic-bezier(.455,.03,.515,.955)}[data-aos][data-aos][data-aos-easing=ease-in-quart],body[data-aos-easing=ease-in-quart] [data-aos]{transition-timing-function:cubic-bezier(.55,.085,.68,.53)}[data-aos][data-aos][data-aos-easing=ease-out-quart],body[data-aos-easing=ease-out-quart] [data-aos]{transition-timing-function:cubic-bezier(.25,.46,.45,.94)}[data-aos][data-aos][data-aos-easing=ease-in-out-quart],body[data-aos-easing=ease-in-out-quart] [data-aos]{transition-timing-function:cubic-bezier(.455,.03,.515,.955)}[data-aos^=fade][data-aos^=fade]{opacity:0;transition-property:opacity,transform}[data-aos^=fade][data-aos^=fade].aos-animate{opacity:1;transform:translateZ(0)}[data-aos=fade-up]{transform:translate3d(0,100px,0)}[data-aos=fade-down]{transform:translate3d(0,-100px,0)}[data-aos=fade-right]{transform:translate3d(-100px,0,0)}[data-aos=fade-left]{transform:translate3d(100px,0,0)}[data-aos=fade-up-right]{transform:translate3d(-100px,100px,0)}[data-aos=fade-up-left]{transform:translate3d(100px,100px,0)}[data-aos=fade-down-right]{transform:translate3d(-100px,-100px,0)}[data-aos=fade-down-left]{transform:translate3d(100px,-100px,0)}[data-aos^=zoom][data-aos^=zoom]{opacity:0;transition-property:opacity,transform}[data-aos^=zoom][data-aos^=zoom].aos-animate{opacity:1;transform:translateZ(0) scale(1)}[data-aos=zoom-in]{transform:scale(.6)}[data-aos=zoom-in-up]{transform:translate3d(0,100px,0) scale(.6)}[data-aos=zoom-in-down]{transform:translate3d(0,-100px,0) scale(.6)}[data-aos=zoom-in-right]{transform:translate3d(-100px,0,0) scale(.6)}[data-aos=zoom-in-left]{transform:translate3d(100px,0,0) scale(.6)}[data-aos=zoom-out]{transform:scale(1.2)}[data-aos=zoom-out-up]{transform:translate3d(0,100px,0) scale(1.2)}[data-aos=zoom-out-down]{transform:translate3d(0,-100px,0) scale(1.2)}[data-aos=zoom-out-right]{transform:translate3d(-100px,0,0) scale(1.2)}[data-aos=zoom-out-left]{transform:translate3d(100px,0,0) scale(1.2)}[data-aos^=slide][data-aos^=slide]{transition-property:transform}[data-aos^=slide][data-aos^=slide].aos-animate{transform:translateZ(0)}[data-aos=slide-up]{transform:translate3d(0,100%,0)}[data-aos=slide-down]{transform:translate3d(0,-100%,0)}[data-aos=slide-right]{transform:translate3d(-100%,0,0)}[data-aos=slide-left]{transform:translate3d(100%,0,0)}[data-aos^=flip][data-aos^=flip]{backface-visibility:hidden;transition-property:transform}[data-aos=flip-left]{transform:perspective(2500px) rotateY(-100deg)}[data-aos=flip-left].aos-animate{transform:perspective(2500px) rotateY(0)}[data-aos=flip-right]{transform:perspective(2500px) rotateY(100deg)}[data-aos=flip-right].aos-animate{transform:perspective(2500px) rotateY(0)}[data-aos=flip-up]{transform:perspective(2500px) rotateX(-100deg)}[data-aos=flip-up].aos-animate{transform:perspective(2500px) rotateX(0)}[data-aos=flip-down]{transform:perspective(2500px) rotateX(100deg)}[data-aos=flip-down].aos-animate{transform:perspective(2500px) rotateX(0)}
+
+    </style>
+
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:title" content="Richard" />
+
+    <meta
+      property="og:description"
+      content="A simple, AI Discord bot."
+    />
+
+    <meta property="og:image" content="https://homemade.sheepiegamer20.com/sheepie-ai.png"/>
+
+    <meta name="theme-color" content="#22b4b7" />
+  </head>
+
+  <body>
+    <div id="particles-js"></div>
+
+    <div class="scroll-up-btn">
+      <i class="fas fa-angle-up"></i>
+    </div>
+
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="logo">
+          <a href="/">Back<span></span></a>
+        </div>
+
+        <ul class="menu">
+
+          <li>
+            <a href="#features" class="menu-btn" class="menu-btn">Features</a>
+          </li>
+
+          <li><a href="#stats" class="menu-btn">Stats</a></li>
+
+          <li><a href="#contributors" class="menu-btn">About</a></li>
+
+          <li><a href="/discord" class="menu-btn">Contact</a></li>
+
+          <li><a href="/premium" class="menu-btn">Premium</a></li>
+        </ul>
+
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <section class="home" id="home">
+      <div class="max-width">
+        <div class="home-content">
+          <div class="text-1">Hello, my name is</div>
+
+          <div class="text-2">Richard</div>
+
+          <div class="text-3">And I am <span class="typing"></span></div>
+
+          <a class="this-is-pain" href="/invite">Invite Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="max-width">
+        <h2 class="title">My Features</h2>
+
+        <div class="features-content">
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-cogs"></i>
+
+              <div class="text">Customization</div>
+
+              <p>
+                Customize your Discord server using welcome and leave messages,
+                level up system, custom commands, NQN mode and much more!
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-code"></i>
+
+              <div class="text">Games</div>
+
+              <p>
+                Tons Of Games Are awaiting for you! claim all your deservings
+                and win!
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-music"></i>
+
+              <div class="text">Music</div>
+
+              <p>
+                An extremely high quality music system where you can play songs
+                or listen to YouTube or Twitch live streams in a Discord voice
+                chat.
+                Due to Sometime The Music Will be Unavailable
+                (Coming Soon™)
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-lock"></i>
+
+              <div class="text">Moderation</div>
+
+              <p>
+                Protect your Discord server with Richard's robust moderation and
+                powerful commands to improve and speed up moderation.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-terminal"></i>
+
+              <div class="text">Web Dashboard</div>
+
+              <p>
+                Configure each and every setting from the Web Dashboard of Richard!
+                (Coming Soon™)
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-arrow-up"></i>
+
+              <div class="text">Level up System</div>
+
+              <p>
+                Make your server more active by rewarding users points, roles,
+                and more for being active. (Coming Soon™)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" id="stats">
+      <div class="max-width">
+        <h2 class="title">
+          My Stats
+        </h2>
+
+        <div class="stats-content">
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-server"></i>
+
+              <div class="text">Servers</div>
+
+              <p id="server-count">{{guild_amount}}</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-user"></i>
+
+              <div class="text">Users</div>
+
+              <p id="user-count">{{member_count}}</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="box">
+              <i class="fas fa-terminal"></i>
+
+              <div class="text">Commands Used</div>
+
+              <p>{{command_count}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contributors" id="contributors">
+      <div class="max-width">
+
+          </div>
+  </section>
+
+    <div class="loader-wrapper">
+      <img
+        src="https://cdn.discordapp.com/attachments/889523668252753931/928379313823313950/13335.gif"
+        alt="Loading..."
+      />
+
+      <div class="longfazers">
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+      </div>
+    </div>
+
+    <footer>
+      <a
+        style="display: none;"
+        href="//www.dmca.com/Protection/Status.aspx?ID=04da08e3-40f5-4320-8093-86b1c519bf13"
+        title="DMCA.com Protection Status"
+        class="dmca-badge"
+      >
+        <img
+          src="https://images.dmca.com/Badges/dmca-badge-w150-5x1-07.png?ID=04da08e3-40f5-4320-8093-86b1c519bf13"
+          alt="DMCA.com Protection Status"
+      /></a>
+      <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+
+      <a
+        style="display: none;"
+        title="DMCA Compliance information for Richard.gq"
+        ><img src="https://www.dmca.com/img/dmca-compliant-grayscale.png"
+      /></a>
+
+      <span
+        >Made with 💖 by
+        <a href="https://discord.gg" target="_blank">sheepiegamer</a
+        ><br /><span class="far fa-copyright"></span>sheepiegamer</span
+      >
+    </footer>
+
+    <script> // ./aos/aos.js
+!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.AOS=t():e.AOS=t()}(this,function(){return function(e){function t(o){if(n[o])return n[o].exports;var i=n[o]={exports:{},id:o,loaded:!1};return e[o].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n={};return t.m=e,t.c=n,t.p="dist/",t(0)}([function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}var i=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},r=n(1),a=(o(r),n(6)),u=o(a),c=n(7),f=o(c),s=n(8),d=o(s),l=n(9),p=o(l),m=n(10),b=o(m),v=n(11),y=o(v),g=n(14),h=o(g),w=[],k=!1,x={offset:120,delay:0,easing:"ease",duration:400,disable:!1,once:!1,startEvent:"DOMContentLoaded",throttleDelay:99,debounceDelay:50,disableMutationObserver:!1},j=function(){var e=arguments.length>0&&void 0!==arguments[0]&&arguments[0];if(e&&(k=!0),k)return w=(0,y.default)(w,x),(0,b.default)(w,x.once),w},O=function(){w=(0,h.default)(),j()},_=function(){w.forEach(function(e,t){e.node.removeAttribute("data-aos"),e.node.removeAttribute("data-aos-easing"),e.node.removeAttribute("data-aos-duration"),e.node.removeAttribute("data-aos-delay")})},S=function(e){return e===!0||"mobile"===e&&p.default.mobile()||"phone"===e&&p.default.phone()||"tablet"===e&&p.default.tablet()||"function"==typeof e&&e()===!0},z=function(e){x=i(x,e),w=(0,h.default)();var t=document.all&&!window.atob;return S(x.disable)||t?_():(document.querySelector("body").setAttribute("data-aos-easing",x.easing),document.querySelector("body").setAttribute("data-aos-duration",x.duration),document.querySelector("body").setAttribute("data-aos-delay",x.delay),"DOMContentLoaded"===x.startEvent&&["complete","interactive"].indexOf(document.readyState)>-1?j(!0):"load"===x.startEvent?window.addEventListener(x.startEvent,function(){j(!0)}):document.addEventListener(x.startEvent,function(){j(!0)}),window.addEventListener("resize",(0,f.default)(j,x.debounceDelay,!0)),window.addEventListener("orientationchange",(0,f.default)(j,x.debounceDelay,!0)),window.addEventListener("scroll",(0,u.default)(function(){(0,b.default)(w,x.once)},x.throttleDelay)),x.disableMutationObserver||(0,d.default)("[data-aos]",O),w)};e.exports={init:z,refresh:j,refreshHard:O}},function(e,t){},,,,,function(e,t){(function(t){"use strict";function n(e,t,n){function o(t){var n=b,o=v;return b=v=void 0,k=t,g=e.apply(o,n)}function r(e){return k=e,h=setTimeout(s,t),_?o(e):g}function a(e){var n=e-w,o=e-k,i=t-n;return S?j(i,y-o):i}function c(e){var n=e-w,o=e-k;return void 0===w||n>=t||n<0||S&&o>=y}function s(){var e=O();return c(e)?d(e):void(h=setTimeout(s,a(e)))}function d(e){return h=void 0,z&&b?o(e):(b=v=void 0,g)}function l(){void 0!==h&&clearTimeout(h),k=0,b=w=v=h=void 0}function p(){return void 0===h?g:d(O())}function m(){var e=O(),n=c(e);if(b=arguments,v=this,w=e,n){if(void 0===h)return r(w);if(S)return h=setTimeout(s,t),o(w)}return void 0===h&&(h=setTimeout(s,t)),g}var b,v,y,g,h,w,k=0,_=!1,S=!1,z=!0;if("function"!=typeof e)throw new TypeError(f);return t=u(t)||0,i(n)&&(_=!!n.leading,S="maxWait"in n,y=S?x(u(n.maxWait)||0,t):y,z="trailing"in n?!!n.trailing:z),m.cancel=l,m.flush=p,m}function o(e,t,o){var r=!0,a=!0;if("function"!=typeof e)throw new TypeError(f);return i(o)&&(r="leading"in o?!!o.leading:r,a="trailing"in o?!!o.trailing:a),n(e,t,{leading:r,maxWait:t,trailing:a})}function i(e){var t="undefined"==typeof e?"undefined":c(e);return!!e&&("object"==t||"function"==t)}function r(e){return!!e&&"object"==("undefined"==typeof e?"undefined":c(e))}function a(e){return"symbol"==("undefined"==typeof e?"undefined":c(e))||r(e)&&k.call(e)==d}function u(e){if("number"==typeof e)return e;if(a(e))return s;if(i(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=i(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(l,"");var n=m.test(e);return n||b.test(e)?v(e.slice(2),n?2:8):p.test(e)?s:+e}var c="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},f="Expected a function",s=NaN,d="[object Symbol]",l=/^\s+|\s+$/g,p=/^[-+]0x[0-9a-f]+$/i,m=/^0b[01]+$/i,b=/^0o[0-7]+$/i,v=parseInt,y="object"==("undefined"==typeof t?"undefined":c(t))&&t&&t.Object===Object&&t,g="object"==("undefined"==typeof self?"undefined":c(self))&&self&&self.Object===Object&&self,h=y||g||Function("return this")(),w=Object.prototype,k=w.toString,x=Math.max,j=Math.min,O=function(){return h.Date.now()};e.exports=o}).call(t,function(){return this}())},function(e,t){(function(t){"use strict";function n(e,t,n){function i(t){var n=b,o=v;return b=v=void 0,O=t,g=e.apply(o,n)}function r(e){return O=e,h=setTimeout(s,t),_?i(e):g}function u(e){var n=e-w,o=e-O,i=t-n;return S?x(i,y-o):i}function f(e){var n=e-w,o=e-O;return void 0===w||n>=t||n<0||S&&o>=y}function s(){var e=j();return f(e)?d(e):void(h=setTimeout(s,u(e)))}function d(e){return h=void 0,z&&b?i(e):(b=v=void 0,g)}function l(){void 0!==h&&clearTimeout(h),O=0,b=w=v=h=void 0}function p(){return void 0===h?g:d(j())}function m(){var e=j(),n=f(e);if(b=arguments,v=this,w=e,n){if(void 0===h)return r(w);if(S)return h=setTimeout(s,t),i(w)}return void 0===h&&(h=setTimeout(s,t)),g}var b,v,y,g,h,w,O=0,_=!1,S=!1,z=!0;if("function"!=typeof e)throw new TypeError(c);return t=a(t)||0,o(n)&&(_=!!n.leading,S="maxWait"in n,y=S?k(a(n.maxWait)||0,t):y,z="trailing"in n?!!n.trailing:z),m.cancel=l,m.flush=p,m}function o(e){var t="undefined"==typeof e?"undefined":u(e);return!!e&&("object"==t||"function"==t)}function i(e){return!!e&&"object"==("undefined"==typeof e?"undefined":u(e))}function r(e){return"symbol"==("undefined"==typeof e?"undefined":u(e))||i(e)&&w.call(e)==s}function a(e){if("number"==typeof e)return e;if(r(e))return f;if(o(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=o(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(d,"");var n=p.test(e);return n||m.test(e)?b(e.slice(2),n?2:8):l.test(e)?f:+e}var u="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},c="Expected a function",f=NaN,s="[object Symbol]",d=/^\s+|\s+$/g,l=/^[-+]0x[0-9a-f]+$/i,p=/^0b[01]+$/i,m=/^0o[0-7]+$/i,b=parseInt,v="object"==("undefined"==typeof t?"undefined":u(t))&&t&&t.Object===Object&&t,y="object"==("undefined"==typeof self?"undefined":u(self))&&self&&self.Object===Object&&self,g=v||y||Function("return this")(),h=Object.prototype,w=h.toString,k=Math.max,x=Math.min,j=function(){return g.Date.now()};e.exports=n}).call(t,function(){return this}())},function(e,t){"use strict";function n(e,t){var n=window.document,r=window.MutationObserver||window.WebKitMutationObserver||window.MozMutationObserver,a=new r(o);i=t,a.observe(n.documentElement,{childList:!0,subtree:!0,removedNodes:!0})}function o(e){e&&e.forEach(function(e){var t=Array.prototype.slice.call(e.addedNodes),n=Array.prototype.slice.call(e.removedNodes),o=t.concat(n).filter(function(e){return e.hasAttribute&&e.hasAttribute("data-aos")}).length;o&&i()})}Object.defineProperty(t,"__esModule",{value:!0});var i=function(){};t.default=n},function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(){return navigator.userAgent||navigator.vendor||window.opera||""}Object.defineProperty(t,"__esModule",{value:!0});var i=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}(),r=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i,a=/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i,u=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i,c=/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i,f=function(){function e(){n(this,e)}return i(e,[{key:"phone",value:function(){var e=o();return!(!r.test(e)&&!a.test(e.substr(0,4)))}},{key:"mobile",value:function(){var e=o();return!(!u.test(e)&&!c.test(e.substr(0,4)))}},{key:"tablet",value:function(){return this.mobile()&&!this.phone()}}]),e}();t.default=new f},function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=function(e,t,n){var o=e.node.getAttribute("data-aos-once");t>e.position?e.node.classList.add("aos-animate"):"undefined"!=typeof o&&("false"===o||!n&&"true"!==o)&&e.node.classList.remove("aos-animate")},o=function(e,t){var o=window.pageYOffset,i=window.innerHeight;e.forEach(function(e,r){n(e,i+o,t)})};t.default=o},function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var i=n(12),r=o(i),a=function(e,t){return e.forEach(function(e,n){e.node.classList.add("aos-init"),e.position=(0,r.default)(e.node,t.offset)}),e};t.default=a},function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var i=n(13),r=o(i),a=function(e,t){var n=0,o=0,i=window.innerHeight,a={offset:e.getAttribute("data-aos-offset"),anchor:e.getAttribute("data-aos-anchor"),anchorPlacement:e.getAttribute("data-aos-anchor-placement")};switch(a.offset&&!isNaN(a.offset)&&(o=parseInt(a.offset)),a.anchor&&document.querySelectorAll(a.anchor)&&(e=document.querySelectorAll(a.anchor)[0]),n=(0,r.default)(e).top,a.anchorPlacement){case"top-bottom":break;case"center-bottom":n+=e.offsetHeight/2;break;case"bottom-bottom":n+=e.offsetHeight;break;case"top-center":n+=i/2;break;case"bottom-center":n+=i/2+e.offsetHeight;break;case"center-center":n+=i/2+e.offsetHeight/2;break;case"top-top":n+=i;break;case"bottom-top":n+=e.offsetHeight+i;break;case"center-top":n+=e.offsetHeight/2+i}return a.anchorPlacement||a.offset||isNaN(t)||(o=t),n+o};t.default=a},function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=function(e){for(var t=0,n=0;e&&!isNaN(e.offsetLeft)&&!isNaN(e.offsetTop);)t+=e.offsetLeft-("BODY"!=e.tagName?e.scrollLeft:0),n+=e.offsetTop-("BODY"!=e.tagName?e.scrollTop:0),e=e.offsetParent;return{top:n,left:t}};t.default=n},function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=function(e){return e=e||document.querySelectorAll("[data-aos]"),Array.prototype.map.call(e,function(e){return{node:e}})};t.default=n}])});
+    </script>
+
+    <script type="text/javascript">
+      AOS.init({
+        duration: 1000
+      });
+    </script>
+
+    <script> //script.js
+$(document).ready(function() {
+  $(window).scroll(function() {
+    if(this.scrollY > 20) {
+      $('.navbar').addClass("sticky");
+    } else {
+      $('.navbar').removeClass("sticky");
+    }
+    if(this.scrollY > 500) {
+      $('.scroll-up-btn').addClass("show");
+    } else {
+      $('.scroll-up-btn').removeClass("show");
+    }
+  })
+
+  $('.scroll-up-btn').click(function() {
+    $('html').animate({scrollTop: 0});
+  })
+
+  $('.menu-btn').click(function() {
+    $('.navbar .menu').toggleClass("active");
+    $('.menu-btn i').toggleClass("active");
+  })
+
+  var typed = new Typed('.typing', {
+    strings: [
+      "simple",
+      "looking for developers",
+      "powerful",
+      "easy to use",
+      "fun",
+      "your personal ChatBot",
+      "made with love",
+      "well developed",
+      "nice",
+    ],
+    typeSpeed: 120,
+    backSpeed: 80,
+    loop: true,
+  })
+
+
+
+  $('.carousel').owlCarousel({
+    margin: 20,
+    loop: true,
+    autoplayTimeOut: 2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0:{
+        items: 1,
+        nav: false
+      },
+      600:{
+        items: 2,
+        nav: false
+      },
+      1000:{
+        items: 3,
+        nav: false
+      }
+    }
+  });
+
+})
+    </script>
+
+    <script> //stats.js
+      function fetchData() {
+	fetch('https://api.statcord.com/v3/884467910494535741').then(response => {
+		return response.json();
+	}).then(data => {
+		console.log(data.data[0].servers);
+		document.querySelector('#server-count').innerHTML = `<h4>${data.data[0].servers}`
+		console.log(data.data[0].users);
+		document.querySelector('#user-count').innerHTML = `<h4>${data.data[0].users}`
+        console.log(data.data[0].users);
+		document.querySelector('#cmd-count').innerHTML = `<h4>${data.data[0].commands}`
+		// console.log(data.popular);
+		// if (data.popular[0].name === "help") {
+		// 	return document.querySelector('#most-pop-cmd').innerHTML = `<h4>Most Used Command</h4><br /><p>e!${data.popular[1].name}</p>`
+		// } else {
+		// 	return document.querySelector('#most-pop-cmd').innerHTML = `<h4>Most Used Command</h4><br /><p>e!${data.popular[0].name}</p>`
+		// }
+	}).catch(error => {
+		console.log(error);
+	});
+}
+
+fetchData();
+    </script>
+
+    <script>
+      $(window).on("load", function() {
+        $(".loader-wrapper").fadeOut("slow");
+      });
+    </script>
+
+    <script> // ./particles/particles.js
+/* -----------------------------------------------
+/* Author : Vincent Garreau  - vincentgarreau.com
+/* MIT license: http://opensource.org/licenses/MIT
+/* Demo / Generator : vincentgarreau.com/particles.js
+/* GitHub : github.com/VincentGarreau/particles.js
+/* How to use? : Check the GitHub README
+/* v2.0.0
+/* ----------------------------------------------- */
+
+var pJS = function(tag_id, params){
+
+var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
+
+/* particles.js variables with default values */
+this.pJS = {
+  canvas: {
+    el: canvas_el,
+    w: canvas_el.offsetWidth,
+    h: canvas_el.offsetHeight
+  },
+  particles: {
+    number: {
+      value: 400,
+      density: {
+        enable: true,
+        value_area: 800
+      }
+    },
+    color: {
+      value: '#fff'
+    },
+    shape: {
+      type: 'circle',
+      stroke: {
+        width: 0,
+        color: '#ff0000'
+      },
+      polygon: {
+        nb_sides: 5
+      },
+      image: {
+        src: '',
+        width: 100,
+        height: 100
+      }
+    },
+    opacity: {
+      value: 1,
+      random: false,
+      anim: {
+        enable: false,
+        speed: 2,
+        opacity_min: 0,
+        sync: false
+      }
+    },
+    size: {
+      value: 20,
+      random: false,
+      anim: {
+        enable: false,
+        speed: 20,
+        size_min: 0,
+        sync: false
+      }
+    },
+    line_linked: {
+      enable: true,
+      distance: 100,
+      color: '#fff',
+      opacity: 1,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 2,
+      direction: 'none',
+      random: false,
+      straight: false,
+      out_mode: 'out',
+      bounce: false,
+      attract: {
+        enable: false,
+        rotateX: 3000,
+        rotateY: 3000
+      }
+    },
+    array: []
+  },
+  interactivity: {
+    detect_on: 'canvas',
+    events: {
+      onhover: {
+        enable: true,
+        mode: 'grab'
+      },
+      onclick: {
+        enable: true,
+        mode: 'push'
+      },
+      resize: true
+    },
+    modes: {
+      grab:{
+        distance: 100,
+        line_linked:{
+          opacity: 1
+        }
+      },
+      bubble:{
+        distance: 200,
+        size: 80,
+        duration: 0.4
+      },
+      repulse:{
+        distance: 200,
+        duration: 0.4
+      },
+      push:{
+        particles_nb: 4
+      },
+      remove:{
+        particles_nb: 2
+      }
+    },
+    mouse:{}
+  },
+  retina_detect: false,
+  fn: {
+    interact: {},
+    modes: {},
+    vendors:{}
+  },
+  tmp: {}
+};
+
+var pJS = this.pJS;
+
+/* params settings */
+if(params){
+  Object.deepExtend(pJS, params);
+}
+
+pJS.tmp.obj = {
+  size_value: pJS.particles.size.value,
+  size_anim_speed: pJS.particles.size.anim.speed,
+  move_speed: pJS.particles.move.speed,
+  line_linked_distance: pJS.particles.line_linked.distance,
+  line_linked_width: pJS.particles.line_linked.width,
+  mode_grab_distance: pJS.interactivity.modes.grab.distance,
+  mode_bubble_distance: pJS.interactivity.modes.bubble.distance,
+  mode_bubble_size: pJS.interactivity.modes.bubble.size,
+  mode_repulse_distance: pJS.interactivity.modes.repulse.distance
+};
+
+
+pJS.fn.retinaInit = function(){
+
+  if(pJS.retina_detect && window.devicePixelRatio > 1){
+    pJS.canvas.pxratio = window.devicePixelRatio;
+    pJS.tmp.retina = true;
+  }
+  else{
+    pJS.canvas.pxratio = 1;
+    pJS.tmp.retina = false;
+  }
+
+  pJS.canvas.w = pJS.canvas.el.offsetWidth * pJS.canvas.pxratio;
+  pJS.canvas.h = pJS.canvas.el.offsetHeight * pJS.canvas.pxratio;
+
+  pJS.particles.size.value = pJS.tmp.obj.size_value * pJS.canvas.pxratio;
+  pJS.particles.size.anim.speed = pJS.tmp.obj.size_anim_speed * pJS.canvas.pxratio;
+  pJS.particles.move.speed = pJS.tmp.obj.move_speed * pJS.canvas.pxratio;
+  pJS.particles.line_linked.distance = pJS.tmp.obj.line_linked_distance * pJS.canvas.pxratio;
+  pJS.interactivity.modes.grab.distance = pJS.tmp.obj.mode_grab_distance * pJS.canvas.pxratio;
+  pJS.interactivity.modes.bubble.distance = pJS.tmp.obj.mode_bubble_distance * pJS.canvas.pxratio;
+  pJS.particles.line_linked.width = pJS.tmp.obj.line_linked_width * pJS.canvas.pxratio;
+  pJS.interactivity.modes.bubble.size = pJS.tmp.obj.mode_bubble_size * pJS.canvas.pxratio;
+  pJS.interactivity.modes.repulse.distance = pJS.tmp.obj.mode_repulse_distance * pJS.canvas.pxratio;
+
+};
+
+
+
+/* ---------- pJS functions - canvas ------------ */
+
+pJS.fn.canvasInit = function(){
+  pJS.canvas.ctx = pJS.canvas.el.getContext('2d');
+};
+
+pJS.fn.canvasSize = function(){
+
+  pJS.canvas.el.width = pJS.canvas.w;
+  pJS.canvas.el.height = pJS.canvas.h;
+
+  if(pJS && pJS.interactivity.events.resize){
+
+    window.addEventListener('resize', function(){
+
+        pJS.canvas.w = pJS.canvas.el.offsetWidth;
+        pJS.canvas.h = pJS.canvas.el.offsetHeight;
+
+        /* resize canvas */
+        if(pJS.tmp.retina){
+          pJS.canvas.w *= pJS.canvas.pxratio;
+          pJS.canvas.h *= pJS.canvas.pxratio;
+        }
+
+        pJS.canvas.el.width = pJS.canvas.w;
+        pJS.canvas.el.height = pJS.canvas.h;
+
+        /* repaint canvas on anim disabled */
+        if(!pJS.particles.move.enable){
+          pJS.fn.particlesEmpty();
+          pJS.fn.particlesCreate();
+          pJS.fn.particlesDraw();
+          pJS.fn.vendors.densityAutoParticles();
+        }
+
+      /* density particles enabled */
+      pJS.fn.vendors.densityAutoParticles();
+
+    });
+
+  }
+
+};
+
+
+pJS.fn.canvasPaint = function(){
+  pJS.canvas.ctx.fillRect(0, 0, pJS.canvas.w, pJS.canvas.h);
+};
+
+pJS.fn.canvasClear = function(){
+  pJS.canvas.ctx.clearRect(0, 0, pJS.canvas.w, pJS.canvas.h);
+};
+
+
+/* --------- pJS functions - particles ----------- */
+
+pJS.fn.particle = function(color, opacity, position){
+
+  /* size */
+  this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value;
+  if(pJS.particles.size.anim.enable){
+    this.size_status = false;
+    this.vs = pJS.particles.size.anim.speed / 100;
+    if(!pJS.particles.size.anim.sync){
+      this.vs = this.vs * Math.random();
+    }
+  }
+
+  /* position */
+  this.x = position ? position.x : Math.random() * pJS.canvas.w;
+  this.y = position ? position.y : Math.random() * pJS.canvas.h;
+
+  /* check position  - into the canvas */
+  if(this.x > pJS.canvas.w - this.radius*2) this.x = this.x - this.radius;
+  else if(this.x < this.radius*2) this.x = this.x + this.radius;
+  if(this.y > pJS.canvas.h - this.radius*2) this.y = this.y - this.radius;
+  else if(this.y < this.radius*2) this.y = this.y + this.radius;
+
+  /* check position - avoid overlap */
+  if(pJS.particles.move.bounce){
+    pJS.fn.vendors.checkOverlap(this, position);
+  }
+
+  /* color */
+  this.color = {};
+  if(typeof(color.value) == 'object'){
+
+    if(color.value instanceof Array){
+      var color_selected = color.value[Math.floor(Math.random() * pJS.particles.color.value.length)];
+      this.color.rgb = hexToRgb(color_selected);
+    }else{
+      if(color.value.r != undefined && color.value.g != undefined && color.value.b != undefined){
+        this.color.rgb = {
+          r: color.value.r,
+          g: color.value.g,
+          b: color.value.b
+        }
+      }
+      if(color.value.h != undefined && color.value.s != undefined && color.value.l != undefined){
+        this.color.hsl = {
+          h: color.value.h,
+          s: color.value.s,
+          l: color.value.l
+        }
+      }
+    }
+
+  }
+  else if(color.value == 'random'){
+    this.color.rgb = {
+      r: (Math.floor(Math.random() * (255 - 0 + 1)) + 0),
+      g: (Math.floor(Math.random() * (255 - 0 + 1)) + 0),
+      b: (Math.floor(Math.random() * (255 - 0 + 1)) + 0)
+    }
+  }
+  else if(typeof(color.value) == 'string'){
+    this.color = color;
+    this.color.rgb = hexToRgb(this.color.value);
+  }
+
+  /* opacity */
+  this.opacity = (pJS.particles.opacity.random ? Math.random() : 1) * pJS.particles.opacity.value;
+  if(pJS.particles.opacity.anim.enable){
+    this.opacity_status = false;
+    this.vo = pJS.particles.opacity.anim.speed / 100;
+    if(!pJS.particles.opacity.anim.sync){
+      this.vo = this.vo * Math.random();
+    }
+  }
+
+  /* animation - velocity for speed */
+  var velbase = {}
+  switch(pJS.particles.move.direction){
+    case 'top':
+      velbase = { x:0, y:-1 };
+    break;
+    case 'top-right':
+      velbase = { x:0.5, y:-0.5 };
+    break;
+    case 'right':
+      velbase = { x:1, y:-0 };
+    break;
+    case 'bottom-right':
+      velbase = { x:0.5, y:0.5 };
+    break;
+    case 'bottom':
+      velbase = { x:0, y:1 };
+    break;
+    case 'bottom-left':
+      velbase = { x:-0.5, y:1 };
+    break;
+    case 'left':
+      velbase = { x:-1, y:0 };
+    break;
+    case 'top-left':
+      velbase = { x:-0.5, y:-0.5 };
+    break;
+    default:
+      velbase = { x:0, y:0 };
+    break;
+  }
+
+  if(pJS.particles.move.straight){
+    this.vx = velbase.x;
+    this.vy = velbase.y;
+    if(pJS.particles.move.random){
+      this.vx = this.vx * (Math.random());
+      this.vy = this.vy * (Math.random());
+    }
+  }else{
+    this.vx = velbase.x + Math.random()-0.5;
+    this.vy = velbase.y + Math.random()-0.5;
+  }
+
+  // var theta = 2.0 * Math.PI * Math.random();
+  // this.vx = Math.cos(theta);
+  // this.vy = Math.sin(theta);
+
+  this.vx_i = this.vx;
+  this.vy_i = this.vy;
+
+
+
+  /* if shape is image */
+
+  var shape_type = pJS.particles.shape.type;
+  if(typeof(shape_type) == 'object'){
+    if(shape_type instanceof Array){
+      var shape_selected = shape_type[Math.floor(Math.random() * shape_type.length)];
+      this.shape = shape_selected;
+    }
+  }else{
+    this.shape = shape_type;
+  }
+
+  if(this.shape == 'image'){
+    var sh = pJS.particles.shape;
+    this.img = {
+      src: sh.image.src,
+      ratio: sh.image.width / sh.image.height
+    }
+    if(!this.img.ratio) this.img.ratio = 1;
+    if(pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg != undefined){
+      pJS.fn.vendors.createSvgImg(this);
+      if(pJS.tmp.pushing){
+        this.img.loaded = false;
+      }
+    }
+  }
+
+
+
+};
+
+
+pJS.fn.particle.prototype.draw = function() {
+
+  var p = this;
+
+  if(p.radius_bubble != undefined){
+    var radius = p.radius_bubble;
+  }else{
+    var radius = p.radius;
+  }
+
+  if(p.opacity_bubble != undefined){
+    var opacity = p.opacity_bubble;
+  }else{
+    var opacity = p.opacity;
+  }
+
+  if(p.color.rgb){
+    var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+opacity+')';
+  }else{
+    var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+opacity+')';
+  }
+
+  pJS.canvas.ctx.fillStyle = color_value;
+  pJS.canvas.ctx.beginPath();
+
+  switch(p.shape){
+
+    case 'circle':
+      pJS.canvas.ctx.arc(p.x, p.y, radius, 0, Math.PI * 2, false);
+    break;
+
+    case 'edge':
+      pJS.canvas.ctx.rect(p.x-radius, p.y-radius, radius*2, radius*2);
+    break;
+
+    case 'triangle':
+      pJS.fn.vendors.drawShape(pJS.canvas.ctx, p.x-radius, p.y+radius / 1.66, radius*2, 3, 2);
+    break;
+
+    case 'polygon':
+      pJS.fn.vendors.drawShape(
+        pJS.canvas.ctx,
+        p.x - radius / (pJS.particles.shape.polygon.nb_sides/3.5), // startX
+        p.y - radius / (2.66/3.5), // startY
+        radius*2.66 / (pJS.particles.shape.polygon.nb_sides/3), // sideLength
+        pJS.particles.shape.polygon.nb_sides, // sideCountNumerator
+        1 // sideCountDenominator
+      );
+    break;
+
+    case 'star':
+      pJS.fn.vendors.drawShape(
+        pJS.canvas.ctx,
+        p.x - radius*2 / (pJS.particles.shape.polygon.nb_sides/4), // startX
+        p.y - radius / (2*2.66/3.5), // startY
+        radius*2*2.66 / (pJS.particles.shape.polygon.nb_sides/3), // sideLength
+        pJS.particles.shape.polygon.nb_sides, // sideCountNumerator
+        2 // sideCountDenominator
+      );
+    break;
+
+    case 'image':
+
+      function draw(){
+        pJS.canvas.ctx.drawImage(
+          img_obj,
+          p.x-radius,
+          p.y-radius,
+          radius*2,
+          radius*2 / p.img.ratio
+        );
+      }
+
+      if(pJS.tmp.img_type == 'svg'){
+        var img_obj = p.img.obj;
+      }else{
+        var img_obj = pJS.tmp.img_obj;
+      }
+
+      if(img_obj){
+        draw();
+      }
+
+    break;
+
+  }
+
+  pJS.canvas.ctx.closePath();
+
+  if(pJS.particles.shape.stroke.width > 0){
+    pJS.canvas.ctx.strokeStyle = pJS.particles.shape.stroke.color;
+    pJS.canvas.ctx.lineWidth = pJS.particles.shape.stroke.width;
+    pJS.canvas.ctx.stroke();
+  }
+
+  pJS.canvas.ctx.fill();
+
+};
+
+
+pJS.fn.particlesCreate = function(){
+  for(var i = 0; i < pJS.particles.number.value; i++) {
+    pJS.particles.array.push(new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value));
+  }
+};
+
+pJS.fn.particlesUpdate = function(){
+
+  for(var i = 0; i < pJS.particles.array.length; i++){
+
+    /* the particle */
+    var p = pJS.particles.array[i];
+
+    // var d = ( dx = pJS.interactivity.mouse.click_pos_x - p.x ) * dx + ( dy = pJS.interactivity.mouse.click_pos_y - p.y ) * dy;
+    // var f = -BANG_SIZE / d;
+    // if ( d < BANG_SIZE ) {
+    //     var t = Math.atan2( dy, dx );
+    //     p.vx = f * Math.cos(t);
+    //     p.vy = f * Math.sin(t);
+    // }
+
+    /* move the particle */
+    if(pJS.particles.move.enable){
+      var ms = pJS.particles.move.speed/2;
+      p.x += p.vx * ms;
+      p.y += p.vy * ms;
+    }
+
+    /* change opacity status */
+    if(pJS.particles.opacity.anim.enable) {
+      if(p.opacity_status == true) {
+        if(p.opacity >= pJS.particles.opacity.value) p.opacity_status = false;
+        p.opacity += p.vo;
+      }else {
+        if(p.opacity <= pJS.particles.opacity.anim.opacity_min) p.opacity_status = true;
+        p.opacity -= p.vo;
+      }
+      if(p.opacity < 0) p.opacity = 0;
+    }
+
+    /* change size */
+    if(pJS.particles.size.anim.enable){
+      if(p.size_status == true){
+        if(p.radius >= pJS.particles.size.value) p.size_status = false;
+        p.radius += p.vs;
+      }else{
+        if(p.radius <= pJS.particles.size.anim.size_min) p.size_status = true;
+        p.radius -= p.vs;
+      }
+      if(p.radius < 0) p.radius = 0;
+    }
+
+    /* change particle position if it is out of canvas */
+    if(pJS.particles.move.out_mode == 'bounce'){
+      var new_pos = {
+        x_left: p.radius,
+        x_right:  pJS.canvas.w,
+        y_top: p.radius,
+        y_bottom: pJS.canvas.h
+      }
+    }else{
+      var new_pos = {
+        x_left: -p.radius,
+        x_right: pJS.canvas.w + p.radius,
+        y_top: -p.radius,
+        y_bottom: pJS.canvas.h + p.radius
+      }
+    }
+
+    if(p.x - p.radius > pJS.canvas.w){
+      p.x = new_pos.x_left;
+      p.y = Math.random() * pJS.canvas.h;
+    }
+    else if(p.x + p.radius < 0){
+      p.x = new_pos.x_right;
+      p.y = Math.random() * pJS.canvas.h;
+    }
+    if(p.y - p.radius > pJS.canvas.h){
+      p.y = new_pos.y_top;
+      p.x = Math.random() * pJS.canvas.w;
+    }
+    else if(p.y + p.radius < 0){
+      p.y = new_pos.y_bottom;
+      p.x = Math.random() * pJS.canvas.w;
+    }
+
+    /* out of canvas modes */
+    switch(pJS.particles.move.out_mode){
+      case 'bounce':
+        if (p.x + p.radius > pJS.canvas.w) p.vx = -p.vx;
+        else if (p.x - p.radius < 0) p.vx = -p.vx;
+        if (p.y + p.radius > pJS.canvas.h) p.vy = -p.vy;
+        else if (p.y - p.radius < 0) p.vy = -p.vy;
+      break;
+    }
+
+    /* events */
+    if(isInArray('grab', pJS.interactivity.events.onhover.mode)){
+      pJS.fn.modes.grabParticle(p);
+    }
+
+    if(isInArray('bubble', pJS.interactivity.events.onhover.mode) || isInArray('bubble', pJS.interactivity.events.onclick.mode)){
+      pJS.fn.modes.bubbleParticle(p);
+    }
+
+    if(isInArray('repulse', pJS.interactivity.events.onhover.mode) || isInArray('repulse', pJS.interactivity.events.onclick.mode)){
+      pJS.fn.modes.repulseParticle(p);
+    }
+
+    /* interaction auto between particles */
+    if(pJS.particles.line_linked.enable || pJS.particles.move.attract.enable){
+      for(var j = i + 1; j < pJS.particles.array.length; j++){
+        var p2 = pJS.particles.array[j];
+
+        /* link particles */
+        if(pJS.particles.line_linked.enable){
+          pJS.fn.interact.linkParticles(p,p2);
+        }
+
+        /* attract particles */
+        if(pJS.particles.move.attract.enable){
+          pJS.fn.interact.attractParticles(p,p2);
+        }
+
+        /* bounce particles */
+        if(pJS.particles.move.bounce){
+          pJS.fn.interact.bounceParticles(p,p2);
+        }
+
+      }
+    }
+
+
+  }
+
+};
+
+pJS.fn.particlesDraw = function(){
+
+  /* clear canvas */
+  pJS.canvas.ctx.clearRect(0, 0, pJS.canvas.w, pJS.canvas.h);
+
+  /* update each particles param */
+  pJS.fn.particlesUpdate();
+
+  /* draw each particle */
+  for(var i = 0; i < pJS.particles.array.length; i++){
+    var p = pJS.particles.array[i];
+    p.draw();
+  }
+
+};
+
+pJS.fn.particlesEmpty = function(){
+  pJS.particles.array = [];
+};
+
+pJS.fn.particlesRefresh = function(){
+
+  /* init all */
+  cancelRequestAnimFrame(pJS.fn.checkAnimFrame);
+  cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+  pJS.tmp.source_svg = undefined;
+  pJS.tmp.img_obj = undefined;
+  pJS.tmp.count_svg = 0;
+  pJS.fn.particlesEmpty();
+  pJS.fn.canvasClear();
+
+  /* restart */
+  pJS.fn.vendors.start();
+
+};
+
+
+/* ---------- pJS functions - particles interaction ------------ */
+
+pJS.fn.interact.linkParticles = function(p1, p2){
+
+  var dx = p1.x - p2.x,
+      dy = p1.y - p2.y,
+      dist = Math.sqrt(dx*dx + dy*dy);
+
+  /* draw a line between p1 and p2 if the distance between them is under the config distance */
+  if(dist <= pJS.particles.line_linked.distance){
+
+    var opacity_line = pJS.particles.line_linked.opacity - (dist / (1/pJS.particles.line_linked.opacity)) / pJS.particles.line_linked.distance;
+
+    if(opacity_line > 0){
+
+      /* style */
+      var color_line = pJS.particles.line_linked.color_rgb_line;
+      pJS.canvas.ctx.strokeStyle = 'rgba('+color_line.r+','+color_line.g+','+color_line.b+','+opacity_line+')';
+      pJS.canvas.ctx.lineWidth = pJS.particles.line_linked.width;
+      //pJS.canvas.ctx.lineCap = 'round'; /* performance issue */
+
+      /* path */
+      pJS.canvas.ctx.beginPath();
+      pJS.canvas.ctx.moveTo(p1.x, p1.y);
+      pJS.canvas.ctx.lineTo(p2.x, p2.y);
+      pJS.canvas.ctx.stroke();
+      pJS.canvas.ctx.closePath();
+
+    }
+
+  }
+
+};
+
+
+pJS.fn.interact.attractParticles  = function(p1, p2){
+
+  /* condensed particles */
+  var dx = p1.x - p2.x,
+      dy = p1.y - p2.y,
+      dist = Math.sqrt(dx*dx + dy*dy);
+
+  if(dist <= pJS.particles.line_linked.distance){
+
+    var ax = dx/(pJS.particles.move.attract.rotateX*1000),
+        ay = dy/(pJS.particles.move.attract.rotateY*1000);
+
+    p1.vx -= ax;
+    p1.vy -= ay;
+
+    p2.vx += ax;
+    p2.vy += ay;
+
+  }
+
+
+}
+
+
+pJS.fn.interact.bounceParticles = function(p1, p2){
+
+  var dx = p1.x - p2.x,
+      dy = p1.y - p2.y,
+      dist = Math.sqrt(dx*dx + dy*dy),
+      dist_p = p1.radius+p2.radius;
+
+  if(dist <= dist_p){
+    p1.vx = -p1.vx;
+    p1.vy = -p1.vy;
+
+    p2.vx = -p2.vx;
+    p2.vy = -p2.vy;
+  }
+
+}
+
+
+/* ---------- pJS functions - modes events ------------ */
+
+pJS.fn.modes.pushParticles = function(nb, pos){
+
+  pJS.tmp.pushing = true;
+
+  for(var i = 0; i < nb; i++){
+    pJS.particles.array.push(
+      new pJS.fn.particle(
+        pJS.particles.color,
+        pJS.particles.opacity.value,
+        {
+          'x': pos ? pos.pos_x : Math.random() * pJS.canvas.w,
+          'y': pos ? pos.pos_y : Math.random() * pJS.canvas.h
+        }
+      )
+    )
+    if(i == nb-1){
+      if(!pJS.particles.move.enable){
+        pJS.fn.particlesDraw();
+      }
+      pJS.tmp.pushing = false;
+    }
+  }
+
+};
+
+
+pJS.fn.modes.removeParticles = function(nb){
+
+  pJS.particles.array.splice(0, nb);
+  if(!pJS.particles.move.enable){
+    pJS.fn.particlesDraw();
+  }
+
+};
+
+
+pJS.fn.modes.bubbleParticle = function(p){
+
+  /* on hover event */
+  if(pJS.interactivity.events.onhover.enable && isInArray('bubble', pJS.interactivity.events.onhover.mode)){
+
+    var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
+        dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
+        dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse),
+        ratio = 1 - dist_mouse / pJS.interactivity.modes.bubble.distance;
+
+    function init(){
+      p.opacity_bubble = p.opacity;
+      p.radius_bubble = p.radius;
+    }
+
+    /* mousemove - check ratio */
+    if(dist_mouse <= pJS.interactivity.modes.bubble.distance){
+
+      if(ratio >= 0 && pJS.interactivity.status == 'mousemove'){
+
+        /* size */
+        if(pJS.interactivity.modes.bubble.size != pJS.particles.size.value){
+
+          if(pJS.interactivity.modes.bubble.size > pJS.particles.size.value){
+            var size = p.radius + (pJS.interactivity.modes.bubble.size*ratio);
+            if(size >= 0){
+              p.radius_bubble = size;
+            }
+          }else{
+            var dif = p.radius - pJS.interactivity.modes.bubble.size,
+                size = p.radius - (dif*ratio);
+            if(size > 0){
+              p.radius_bubble = size;
+            }else{
+              p.radius_bubble = 0;
+            }
+          }
+
+        }
+
+        /* opacity */
+        if(pJS.interactivity.modes.bubble.opacity != pJS.particles.opacity.value){
+
+          if(pJS.interactivity.modes.bubble.opacity > pJS.particles.opacity.value){
+            var opacity = pJS.interactivity.modes.bubble.opacity*ratio;
+            if(opacity > p.opacity && opacity <= pJS.interactivity.modes.bubble.opacity){
+              p.opacity_bubble = opacity;
+            }
+          }else{
+            var opacity = p.opacity - (pJS.particles.opacity.value-pJS.interactivity.modes.bubble.opacity)*ratio;
+            if(opacity < p.opacity && opacity >= pJS.interactivity.modes.bubble.opacity){
+              p.opacity_bubble = opacity;
+            }
+          }
+
+        }
+
+      }
+
+    }else{
+      init();
+    }
+
+
+    /* mouseleave */
+    if(pJS.interactivity.status == 'mouseleave'){
+      init();
+    }
+
+  }
+
+  /* on click event */
+  else if(pJS.interactivity.events.onclick.enable && isInArray('bubble', pJS.interactivity.events.onclick.mode)){
+
+
+    if(pJS.tmp.bubble_clicking){
+      var dx_mouse = p.x - pJS.interactivity.mouse.click_pos_x,
+          dy_mouse = p.y - pJS.interactivity.mouse.click_pos_y,
+          dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse),
+          time_spent = (new Date().getTime() - pJS.interactivity.mouse.click_time)/1000;
+
+      if(time_spent > pJS.interactivity.modes.bubble.duration){
+        pJS.tmp.bubble_duration_end = true;
+      }
+
+      if(time_spent > pJS.interactivity.modes.bubble.duration*2){
+        pJS.tmp.bubble_clicking = false;
+        pJS.tmp.bubble_duration_end = false;
+      }
+    }
+
+
+    function process(bubble_param, particles_param, p_obj_bubble, p_obj, id){
+
+      if(bubble_param != particles_param){
+
+        if(!pJS.tmp.bubble_duration_end){
+          if(dist_mouse <= pJS.interactivity.modes.bubble.distance){
+            if(p_obj_bubble != undefined) var obj = p_obj_bubble;
+            else var obj = p_obj;
+            if(obj != bubble_param){
+              var value = p_obj - (time_spent * (p_obj - bubble_param) / pJS.interactivity.modes.bubble.duration);
+              if(id == 'size') p.radius_bubble = value;
+              if(id == 'opacity') p.opacity_bubble = value;
+            }
+          }else{
+            if(id == 'size') p.radius_bubble = undefined;
+            if(id == 'opacity') p.opacity_bubble = undefined;
+          }
+        }else{
+          if(p_obj_bubble != undefined){
+            var value_tmp = p_obj - (time_spent * (p_obj - bubble_param) / pJS.interactivity.modes.bubble.duration),
+                dif = bubble_param - value_tmp;
+                value = bubble_param + dif;
+            if(id == 'size') p.radius_bubble = value;
+            if(id == 'opacity') p.opacity_bubble = value;
+          }
+        }
+
+      }
+
+    }
+
+    if(pJS.tmp.bubble_clicking){
+      /* size */
+      process(pJS.interactivity.modes.bubble.size, pJS.particles.size.value, p.radius_bubble, p.radius, 'size');
+      /* opacity */
+      process(pJS.interactivity.modes.bubble.opacity, pJS.particles.opacity.value, p.opacity_bubble, p.opacity, 'opacity');
+    }
+
+  }
+
+};
+
+
+pJS.fn.modes.repulseParticle = function(p){
+
+  if(pJS.interactivity.events.onhover.enable && isInArray('repulse', pJS.interactivity.events.onhover.mode) && pJS.interactivity.status == 'mousemove') {
+
+    var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
+        dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
+        dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse);
+
+    var normVec = {x: dx_mouse/dist_mouse, y: dy_mouse/dist_mouse},
+        repulseRadius = pJS.interactivity.modes.repulse.distance,
+        velocity = 100,
+        repulseFactor = clamp((1/repulseRadius)*(-1*Math.pow(dist_mouse/repulseRadius,2)+1)*repulseRadius*velocity, 0, 50);
+
+    var pos = {
+      x: p.x + normVec.x * repulseFactor,
+      y: p.y + normVec.y * repulseFactor
+    }
+
+    if(pJS.particles.move.out_mode == 'bounce'){
+      if(pos.x - p.radius > 0 && pos.x + p.radius < pJS.canvas.w) p.x = pos.x;
+      if(pos.y - p.radius > 0 && pos.y + p.radius < pJS.canvas.h) p.y = pos.y;
+    }else{
+      p.x = pos.x;
+      p.y = pos.y;
+    }
+
+  }
+
+
+  else if(pJS.interactivity.events.onclick.enable && isInArray('repulse', pJS.interactivity.events.onclick.mode)) {
+
+    if(!pJS.tmp.repulse_finish){
+      pJS.tmp.repulse_count++;
+      if(pJS.tmp.repulse_count == pJS.particles.array.length){
+        pJS.tmp.repulse_finish = true;
+      }
+    }
+
+    if(pJS.tmp.repulse_clicking){
+
+      var repulseRadius = Math.pow(pJS.interactivity.modes.repulse.distance/6, 3);
+
+      var dx = pJS.interactivity.mouse.click_pos_x - p.x,
+          dy = pJS.interactivity.mouse.click_pos_y - p.y,
+          d = dx*dx + dy*dy;
+
+      var force = -repulseRadius / d * 1;
+
+      function process(){
+
+        var f = Math.atan2(dy,dx);
+        p.vx = force * Math.cos(f);
+        p.vy = force * Math.sin(f);
+
+        if(pJS.particles.move.out_mode == 'bounce'){
+          var pos = {
+            x: p.x + p.vx,
+            y: p.y + p.vy
+          }
+          if (pos.x + p.radius > pJS.canvas.w) p.vx = -p.vx;
+          else if (pos.x - p.radius < 0) p.vx = -p.vx;
+          if (pos.y + p.radius > pJS.canvas.h) p.vy = -p.vy;
+          else if (pos.y - p.radius < 0) p.vy = -p.vy;
+        }
+
+      }
+
+      // default
+      if(d <= repulseRadius){
+        process();
+      }
+
+      // bang - slow motion mode
+      // if(!pJS.tmp.repulse_finish){
+      //   if(d <= repulseRadius){
+      //     process();
+      //   }
+      // }else{
+      //   process();
+      // }
+
+
+    }else{
+
+      if(pJS.tmp.repulse_clicking == false){
+
+        p.vx = p.vx_i;
+        p.vy = p.vy_i;
+
+      }
+
+    }
+
+  }
+
+}
+
+
+pJS.fn.modes.grabParticle = function(p){
+
+  if(pJS.interactivity.events.onhover.enable && pJS.interactivity.status == 'mousemove'){
+
+    var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
+        dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
+        dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse);
+
+    /* draw a line between the cursor and the particle if the distance between them is under the config distance */
+    if(dist_mouse <= pJS.interactivity.modes.grab.distance){
+
+      var opacity_line = pJS.interactivity.modes.grab.line_linked.opacity - (dist_mouse / (1/pJS.interactivity.modes.grab.line_linked.opacity)) / pJS.interactivity.modes.grab.distance;
+
+      if(opacity_line > 0){
+
+        /* style */
+        var color_line = pJS.particles.line_linked.color_rgb_line;
+        pJS.canvas.ctx.strokeStyle = 'rgba('+color_line.r+','+color_line.g+','+color_line.b+','+opacity_line+')';
+        pJS.canvas.ctx.lineWidth = pJS.particles.line_linked.width;
+        //pJS.canvas.ctx.lineCap = 'round'; /* performance issue */
+
+        /* path */
+        pJS.canvas.ctx.beginPath();
+        pJS.canvas.ctx.moveTo(p.x, p.y);
+        pJS.canvas.ctx.lineTo(pJS.interactivity.mouse.pos_x, pJS.interactivity.mouse.pos_y);
+        pJS.canvas.ctx.stroke();
+        pJS.canvas.ctx.closePath();
+
+      }
+
+    }
+
+  }
+
+};
+
+
+
+/* ---------- pJS functions - vendors ------------ */
+
+pJS.fn.vendors.eventsListeners = function(){
+
+  /* events target element */
+  if(pJS.interactivity.detect_on == 'window'){
+    pJS.interactivity.el = window;
+  }else{
+    pJS.interactivity.el = pJS.canvas.el;
+  }
+
+
+  /* detect mouse pos - on hover / click event */
+  if(pJS.interactivity.events.onhover.enable || pJS.interactivity.events.onclick.enable){
+
+    /* el on mousemove */
+    pJS.interactivity.el.addEventListener('mousemove', function(e){
+
+      if(pJS.interactivity.el == window){
+        var pos_x = e.clientX,
+            pos_y = e.clientY;
+      }
+      else{
+        var pos_x = e.offsetX || e.clientX,
+            pos_y = e.offsetY || e.clientY;
+      }
+
+      pJS.interactivity.mouse.pos_x = pos_x;
+      pJS.interactivity.mouse.pos_y = pos_y;
+
+      if(pJS.tmp.retina){
+        pJS.interactivity.mouse.pos_x *= pJS.canvas.pxratio;
+        pJS.interactivity.mouse.pos_y *= pJS.canvas.pxratio;
+      }
+
+      pJS.interactivity.status = 'mousemove';
+
+    });
+
+    /* el on onmouseleave */
+    pJS.interactivity.el.addEventListener('mouseleave', function(e){
+
+      pJS.interactivity.mouse.pos_x = null;
+      pJS.interactivity.mouse.pos_y = null;
+      pJS.interactivity.status = 'mouseleave';
+
+    });
+
+  }
+
+  /* on click event */
+  if(pJS.interactivity.events.onclick.enable){
+
+    pJS.interactivity.el.addEventListener('click', function(){
+
+      pJS.interactivity.mouse.click_pos_x = pJS.interactivity.mouse.pos_x;
+      pJS.interactivity.mouse.click_pos_y = pJS.interactivity.mouse.pos_y;
+      pJS.interactivity.mouse.click_time = new Date().getTime();
+
+      if(pJS.interactivity.events.onclick.enable){
+
+        switch(pJS.interactivity.events.onclick.mode){
+
+          case 'push':
+            if(pJS.particles.move.enable){
+              pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb, pJS.interactivity.mouse);
+            }else{
+              if(pJS.interactivity.modes.push.particles_nb == 1){
+                pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb, pJS.interactivity.mouse);
+              }
+              else if(pJS.interactivity.modes.push.particles_nb > 1){
+                pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb);
+              }
+            }
+          break;
+
+          case 'remove':
+            pJS.fn.modes.removeParticles(pJS.interactivity.modes.remove.particles_nb);
+          break;
+
+          case 'bubble':
+            pJS.tmp.bubble_clicking = true;
+          break;
+
+          case 'repulse':
+            pJS.tmp.repulse_clicking = true;
+            pJS.tmp.repulse_count = 0;
+            pJS.tmp.repulse_finish = false;
+            setTimeout(function(){
+              pJS.tmp.repulse_clicking = false;
+            }, pJS.interactivity.modes.repulse.duration*1000)
+          break;
+
+        }
+
+      }
+
+    });
+
+  }
+
+
+};
+
+pJS.fn.vendors.densityAutoParticles = function(){
+
+  if(pJS.particles.number.density.enable){
+
+    /* calc area */
+    var area = pJS.canvas.el.width * pJS.canvas.el.height / 1000;
+    if(pJS.tmp.retina){
+      area = area/(pJS.canvas.pxratio*2);
+    }
+
+    /* calc number of particles based on density area */
+    var nb_particles = area * pJS.particles.number.value / pJS.particles.number.density.value_area;
+
+    /* add or remove X particles */
+    var missing_particles = pJS.particles.array.length - nb_particles;
+    if(missing_particles < 0) pJS.fn.modes.pushParticles(Math.abs(missing_particles));
+    else pJS.fn.modes.removeParticles(missing_particles);
+
+  }
+
+};
+
+
+pJS.fn.vendors.checkOverlap = function(p1, position){
+  for(var i = 0; i < pJS.particles.array.length; i++){
+    var p2 = pJS.particles.array[i];
+
+    var dx = p1.x - p2.x,
+        dy = p1.y - p2.y,
+        dist = Math.sqrt(dx*dx + dy*dy);
+
+    if(dist <= p1.radius + p2.radius){
+      p1.x = position ? position.x : Math.random() * pJS.canvas.w;
+      p1.y = position ? position.y : Math.random() * pJS.canvas.h;
+      pJS.fn.vendors.checkOverlap(p1);
+    }
+  }
+};
+
+
+pJS.fn.vendors.createSvgImg = function(p){
+
+  /* set color to svg element */
+  var svgXml = pJS.tmp.source_svg,
+      rgbHex = /#([0-9A-F]{3,6})/gi,
+      coloredSvgXml = svgXml.replace(rgbHex, function (m, r, g, b) {
+        if(p.color.rgb){
+          var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+p.opacity+')';
+        }else{
+          var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+p.opacity+')';
+        }
+        return color_value;
+      });
+
+  /* prepare to create img with colored svg */
+  var svg = new Blob([coloredSvgXml], {type: 'image/svg+xml;charset=utf-8'}),
+      DOMURL = window.URL || window.webkitURL || window,
+      url = DOMURL.createObjectURL(svg);
+
+  /* create particle img obj */
+  var img = new Image();
+  img.addEventListener('load', function(){
+    p.img.obj = img;
+    p.img.loaded = true;
+    DOMURL.revokeObjectURL(url);
+    pJS.tmp.count_svg++;
+  });
+  img.src = url;
+
+};
+
+
+pJS.fn.vendors.destroypJS = function(){
+  cancelAnimationFrame(pJS.fn.drawAnimFrame);
+  canvas_el.remove();
+  pJSDom = null;
+};
+
+
+pJS.fn.vendors.drawShape = function(c, startX, startY, sideLength, sideCountNumerator, sideCountDenominator){
+
+  // By Programming Thomas - https://programmingthomas.wordpress.com/2013/04/03/n-sided-shapes/
+  var sideCount = sideCountNumerator * sideCountDenominator;
+  var decimalSides = sideCountNumerator / sideCountDenominator;
+  var interiorAngleDegrees = (180 * (decimalSides - 2)) / decimalSides;
+  var interiorAngle = Math.PI - Math.PI * interiorAngleDegrees / 180; // convert to radians
+  c.save();
+  c.beginPath();
+  c.translate(startX, startY);
+  c.moveTo(0,0);
+  for (var i = 0; i < sideCount; i++) {
+    c.lineTo(sideLength,0);
+    c.translate(sideLength,0);
+    c.rotate(interiorAngle);
+  }
+  //c.stroke();
+  c.fill();
+  c.restore();
+
+};
+
+pJS.fn.vendors.exportImg = function(){
+  window.open(pJS.canvas.el.toDataURL('image/png'), '_blank');
+};
+
+
+pJS.fn.vendors.loadImg = function(type){
+
+  pJS.tmp.img_error = undefined;
+
+  if(pJS.particles.shape.image.src != ''){
+
+    if(type == 'svg'){
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', pJS.particles.shape.image.src);
+      xhr.onreadystatechange = function (data) {
+        if(xhr.readyState == 4){
+          if(xhr.status == 200){
+            pJS.tmp.source_svg = data.currentTarget.response;
+            pJS.fn.vendors.checkBeforeDraw();
+          }else{
+            console.log('Error pJS - Image not found');
+            pJS.tmp.img_error = true;
+          }
+        }
+      }
+      xhr.send();
+
+    }else{
+
+      var img = new Image();
+      img.addEventListener('load', function(){
+        pJS.tmp.img_obj = img;
+        pJS.fn.vendors.checkBeforeDraw();
+      });
+      img.src = pJS.particles.shape.image.src;
+
+    }
+
+  }else{
+    console.log('Error pJS - No image.src');
+    pJS.tmp.img_error = true;
+  }
+
+};
+
+
+pJS.fn.vendors.draw = function(){
+
+  if(pJS.particles.shape.type == 'image'){
+
+    if(pJS.tmp.img_type == 'svg'){
+
+      if(pJS.tmp.count_svg >= pJS.particles.number.value){
+        pJS.fn.particlesDraw();
+        if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+        else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+      }else{
+        //console.log('still loading...');
+        if(!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+      }
+
+    }else{
+
+      if(pJS.tmp.img_obj != undefined){
+        pJS.fn.particlesDraw();
+        if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+        else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+      }else{
+        if(!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+      }
+
+    }
+
+  }else{
+    pJS.fn.particlesDraw();
+    if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+    else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+  }
+
+};
+
+
+pJS.fn.vendors.checkBeforeDraw = function(){
+
+  // if shape is image
+  if(pJS.particles.shape.type == 'image'){
+
+    if(pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg == undefined){
+      pJS.tmp.checkAnimFrame = requestAnimFrame(check);
+    }else{
+      //console.log('images loaded! cancel check');
+      cancelRequestAnimFrame(pJS.tmp.checkAnimFrame);
+      if(!pJS.tmp.img_error){
+        pJS.fn.vendors.init();
+        pJS.fn.vendors.draw();
+      }
+
+    }
+
+  }else{
+    pJS.fn.vendors.init();
+    pJS.fn.vendors.draw();
+  }
+
+};
+
+
+pJS.fn.vendors.init = function(){
+
+  /* init canvas + particles */
+  pJS.fn.retinaInit();
+  pJS.fn.canvasInit();
+  pJS.fn.canvasSize();
+  pJS.fn.canvasPaint();
+  pJS.fn.particlesCreate();
+  pJS.fn.vendors.densityAutoParticles();
+
+  /* particles.line_linked - convert hex colors to rgb */
+  pJS.particles.line_linked.color_rgb_line = hexToRgb(pJS.particles.line_linked.color);
+
+};
+
+
+pJS.fn.vendors.start = function(){
+
+  if(isInArray('image', pJS.particles.shape.type)){
+    pJS.tmp.img_type = pJS.particles.shape.image.src.substr(pJS.particles.shape.image.src.length - 3);
+    pJS.fn.vendors.loadImg(pJS.tmp.img_type);
+  }else{
+    pJS.fn.vendors.checkBeforeDraw();
+  }
+
+};
+
+
+
+
+/* ---------- pJS - start ------------ */
+
+
+pJS.fn.vendors.eventsListeners();
+
+pJS.fn.vendors.start();
+
+
+
+};
+
+/* ---------- global functions - vendors ------------ */
+
+Object.deepExtend = function(destination, source) {
+for (var property in source) {
+  if (source[property] && source[property].constructor &&
+   source[property].constructor === Object) {
+    destination[property] = destination[property] || {};
+    arguments.callee(destination[property], source[property]);
+  } else {
+    destination[property] = source[property];
+  }
+}
+return destination;
+};
+
+window.requestAnimFrame = (function(){
+return  window.requestAnimationFrame ||
+  window.webkitRequestAnimationFrame ||
+  window.mozRequestAnimationFrame    ||
+  window.oRequestAnimationFrame      ||
+  window.msRequestAnimationFrame     ||
+  function(callback){
+    window.setTimeout(callback, 1000 / 60);
+  };
+})();
+
+window.cancelRequestAnimFrame = ( function() {
+return window.cancelAnimationFrame         ||
+  window.webkitCancelRequestAnimationFrame ||
+  window.mozCancelRequestAnimationFrame    ||
+  window.oCancelRequestAnimationFrame      ||
+  window.msCancelRequestAnimationFrame     ||
+  clearTimeout
+} )();
+
+function hexToRgb(hex){
+// By Tim Down - http://stackoverflow.com/a/5624139/3493650
+// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+   return r + r + g + g + b + b;
+});
+var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+} : null;
+};
+
+function clamp(number, min, max) {
+return Math.min(Math.max(number, min), max);
+};
+
+function isInArray(value, array) {
+return array.indexOf(value) > -1;
+}
+
+
+/* ---------- particles.js functions - start ------------ */
+
+window.pJSDom = [];
+
+window.particlesJS = function(tag_id, params){
+
+//console.log(params);
+
+/* no string id? so it's object params, and set the id with default id */
+if(typeof(tag_id) != 'string'){
+  params = tag_id;
+  tag_id = 'particles-js';
+}
+
+/* no id? set the id to default id */
+if(!tag_id){
+  tag_id = 'particles-js';
+}
+
+/* pJS elements */
+var pJS_tag = document.getElementById(tag_id),
+    pJS_canvas_class = 'particles-js-canvas-el',
+    exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class);
+
+/* remove canvas if exists into the pJS target tag */
+if(exist_canvas.length){
+  while(exist_canvas.length > 0){
+    pJS_tag.removeChild(exist_canvas[0]);
+  }
+}
+
+/* create canvas element */
+var canvas_el = document.createElement('canvas');
+canvas_el.className = pJS_canvas_class;
+
+/* set size canvas */
+canvas_el.style.width = "100%";
+canvas_el.style.height = "100%";
+
+/* append canvas */
+var canvas = document.getElementById(tag_id).appendChild(canvas_el);
+
+/* launch particle.js */
+if(canvas != null){
+  pJSDom.push(new pJS(tag_id, params));
+}
+
+};
+
+window.particlesJS.load = function(tag_id, path_config_json, callback){
+
+/* load json config */
+var xhr = new XMLHttpRequest();
+xhr.open('GET', path_config_json);
+xhr.onreadystatechange = function (data) {
+  if(xhr.readyState == 4){
+    if(xhr.status == 200){
+      var params = JSON.parse(data.currentTarget.response);
+      window.particlesJS(tag_id, params);
+      if(callback) callback();
+    }else{
+      console.log('Error pJS - XMLHttpRequest status: '+xhr.status);
+      console.log('Error pJS - File config not found');
+    }
+  }
+};
+xhr.send();
+
+};
+    </script>
+
+    <script> // ./particles/app.js
+/* -----------------------------------------------
+/* How to use? : Check the GitHub README
+/* ----------------------------------------------- */
+
+/* To load a config file (particles.json) you need to host this demo (MAMP/WAMP/local)... */
+/*
+particlesJS.load('particles-js', 'particles.json', function() {
+  console.log('particles.js loaded - callback');
+});
+*/
+
+/* Otherwise just put the config content (json): */
+
+particlesJS('particles-js',
+
+  {
+    "particles": {
+      "number": {
+        "value": 60,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "random"
+        },
+        "polygon": {
+          "nb_sides": 1
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 0,
+          "height": 0
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 2.5,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 5,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "bottom",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "window",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": false,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 150
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true,
+    "config_demo": {
+      "hide_card": false,
+      "background_color": "#b61924",
+      "background_image": "",
+      "background_position": "50% 50%",
+      "background_repeat": "no-repeat",
+      "background_size": "cover"
+    }
+  }
+
+);
+    </script>
+  </body>
+</html>

@@ -1,5 +1,7 @@
 import settings, discord, secrets
 from string import ascii_letters, digits, punctuation
+import discordbotdash.dash as dbd
+from main import bot
 
 logger = settings.logging.getLogger(__name__)
 
@@ -33,6 +35,14 @@ async def other(bot):
     await bot.tree.sync(guild=bot.guilds[0])
     logger.info("Tree synced")
     logger.info("--")
+    dbd.openDash(init_bot=bot, port=1234)
+    logger.info("Debug dashboard ready")
+    file = open('guilds.txt', 'w+')
+    guilds = bot.guilds
+    for guild in guilds:
+        file.write(f"{guild.id}: {guild.name}\n")
+    file.close()
+    logger.info("Guilds written")
     logger.info("--")
 
 

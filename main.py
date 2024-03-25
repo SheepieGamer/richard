@@ -1,19 +1,19 @@
-import utils, discord, settings
+import utils, discord, settings, asyncio
 from discord import app_commands
 from discord.ext import commands
 from database import economy
 from models.account import Account
 from keep_alive import keep_alive
+from main import bot
 keep_alive()
+
+
 
 logger = settings.logging.getLogger("bot")
 
 def main(token):
+    global bot
     economy.db.create_tables([Account])
-
-    activity = discord.Activity(type=discord.ActivityType.watching, name="richard")
-
-    bot = commands.Bot(command_prefix=settings.PREFIX, intents=settings.INTENTS, activity=activity)
     
     @bot.event
     async def on_ready():
@@ -21,6 +21,8 @@ def main(token):
         await utils.load_cogs(bot)
         await utils.load_cmds(bot)
         await utils.other(bot)
+        await asyncio.sleep(1)
+        logger.info("--")
         logger.info("Startup complete")
         # nothing after
 

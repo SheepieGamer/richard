@@ -1,5 +1,4 @@
 discord==2.3.2
-dotenv-python==0.0.1
 peewee==3.17.1
 requests==2.31.0
 jokeapi==1.0.5
@@ -8,4 +7,4 @@ youtube-dl
 roastedbyai==1.2.0
 flask
 sqlalchemy==2.0.29
-sqlite3
+discordbotdash==1.2.3

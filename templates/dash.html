@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard | Richard</title>
+</head>
+<body>
+    <center><h1>Welcome to the dashboard</h1></center>
+    <h2><u><b>Servers:</b></u></h2>
+    {% for i in guilds %}
+    <h4>{{i}}</h4>
+    {% endfor %}
+    <h2><u><b>Total Members:</b></u></h2>
+    <h4>{{members}}</h4>
+    <h2><u><b>Total Commands Sent:</b></u></h2>
+    <h4>{{command_count}}</h4>
+</body>
+</html>

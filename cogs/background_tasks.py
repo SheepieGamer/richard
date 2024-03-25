@@ -1,44 +1,22 @@
-from discord.ext import commands
+from discord.ext import commands, tasks
 import settings
+import discord
 
 logger = settings.logging.getLogger(__name__)
 
 class BackgroundTasks(commands.Cog):
 
-    # def __init__(self, bot):
-    #     self.bot = bot
-    #     # self.check_users.add_exception_type(Exception)
-    #     self.check_users.start()
+    def __init__(self, bot):
+        self.bot = bot
+        # self.check_users.add_exception_type(Exception)
+        self.check_users.start()
 
-    # def cog_unload(self) -> None:
-    #     self.check_users.stop()
+    def cog_unload(self) -> None:
+        self.check_users.stop()
     
-    # @tasks.loop(seconds=10)
-    # async def check_users(self):
-    #     online = 0
-    #     idle = 0
-    #     dnd = 0
-    #     offline = 0
-    #     for member in self.bot.guilds[0].members:
-    #         if member.status == discord.Status.online:
-    #             online += 1
-    #         if member.status == discord.Status.idle:
-    #             idle += 1
-    #         if member.status == discord.Status.dnd:
-    #             dnd += 1
-    #         if member.status == discord.Status.offline:
-    #             offline += 1
-
-    #     # if offline == 1:
-    #     #     raise Exception("Help")
-
-    #     logger.info({
-    #         "online": online,
-    #         "offline": offline,
-    #         "dnd": dnd,
-    #         "idle": idle
-    #     })
-    
+    @tasks.loop(seconds=10)
+    async def check_users(self):
+        pass
     # @commands.hybrid_command()
     # async def start_loop(self, ctx):
     #     self.check_users.start()
